@@ -1,12 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
-  # GET /posts
-  # GET /posts.json
-  def index
-    @posts = Post.all
-  end
-
+  before_action :authenticate_user!
+  
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -61,6 +56,12 @@ class PostsController < ApplicationController
     end
   end
 
+  #GET/posts/search
+  def search
+
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -71,4 +72,6 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body)
     end
+
+
 end
