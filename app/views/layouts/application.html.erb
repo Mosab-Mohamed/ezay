@@ -23,22 +23,46 @@
 		</div> <!-- end of search div -->
 
 		<div id="buttons">
-			<ul>
-				<li> <a href="">Home</a> </li>
-				<li> <a href="">Write</a> </li>
-				<li> <a href="">Notifications</a></li>
-				<li> <a href="">Settings</a></li>
-			</ul>	
-			<button id="newQ" type="button" onclick="location.href='/'">Ask Question </button>
+				<ul>
+					<% if user_signed_in? %>
+					<li> <a href=""><%=image_tag("home.png", alt: "",width: 20)%><span>Home</span></a> </li>
+					<li> <a href=""><%=image_tag("write.png", alt: "",width: 18)%><span>Write</span></a> </li>
+					<li> <a href=""><%=image_tag("notifications.png", alt: "",width: 20)%><span>Notifications</span></a></li>
+					<li> <a href=""><%=image_tag("settings.png", alt: "",width: 20)%> <span>Settings</span></a></li>
+				</ul>	
+				<button id="newQ" type="button" onclick="location.href='/'">Ask Question </button>
+				<% else %>
+					<li> <%= link_to("Sign In",new_user_session_path) %> </li>
+					<li> <%= link_to("Sign UP",new_user_registration_path) %> </li>
+				<% end %>
+
 
 		</div> <!-- end of buttons div -->
 
 	</div> <!-- end of header div -->   
-
-
 		
+	<div id="sidebar">
 
-<%= yield %>
+		<h4>Categories</h4>
+		<ul>
+			<li> <a href="">Categories A</a> </li>
+			<li> <a href="">Categories B</a> </li>
+			<li> <a href="">Categories C</a></li>
+			<li> <a href="">Categories D</a> </li>
+			<li> <a href="">Categories E</a> </li>
+			<li> <a href="">Categories F</a> </li>
+			<li> <a href="">Categories G</a> </li>
+			<li> <a href="">Categories H</a> </li>
+			<li> <a href="">Categories I</a> </li>
+			<li> <a href="">Categories J</a> </li>
+		</ul>
+
+	</div> <!-- end of sidebar div -->   
+
+	<div id="content">
+		
+		<%= yield %>
+	</div>
 
 </body>
 </html>
