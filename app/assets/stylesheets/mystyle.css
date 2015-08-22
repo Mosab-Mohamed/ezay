@@ -1,0 +1,206 @@
+#header{
+
+	width: 100% ;
+	height: 87px ;
+	border-top: 2px solid #93b874 ;
+	border-bottom: 1px solid #C8C8AC ;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	background-color: #FFFFFF
+}
+
+#logo{
+
+	position: relative;
+	left: 2%;
+
+}
+#logo a:hover {
+
+	background-color: #93b874;
+}
+
+#search{
+
+	position: relative;
+	left: 17%;
+	top:-60px;
+
+
+}
+
+#box{
+
+	width: 250px;
+	height: 20px;
+	background-color: #F7FAFA ;
+}
+
+#searchButton{
+
+	position: relative;
+	left: -5px;
+	width: 80px;
+	height: 27px;
+	background-color: #93b874 ;
+	color: #FFFFFF ;
+}
+
+#buttons{
+
+	position: relative;
+	left:43%;
+	top: -99px;
+
+}
+
+#buttons ul{
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#buttons li{
+	float: left;
+	width: 100px;
+	height: 50px;
+	margin-right: 40px;
+	margin-left: 15px;
+	border-left: 2px solid #93b874 ;
+
+}
+#buttons li a:hover{
+
+	background-color: #E6E8E8;
+	color: #5C5D5D ;
+}
+
+#buttons li a {
+
+	background-color: transparent;
+    display: block;
+    text-decoration: none;
+    width: 115px;
+    height: 32px;
+    padding-top: 15px;
+    padding-left: 20px;
+    font-family: font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#buttons li a span {
+	position: relative;
+	bottom: 3px;
+	left: -7px;
+
+}
+#buttons li a img{
+	position: relative;
+	left: -10px;
+} 
+
+
+#buttons button{
+
+	position: relative;
+	left: 5px;
+	top: 0px;
+	width: 130px;
+	height: 50px;
+	font-family: "Comic Sans MS", cursive, sans-serif ;
+    font-size: 17px;
+	background-color:#93b874; 
+	color: #34342F ;
+}
+
+button , #searchButton {
+
+	cursor: pointer;
+}
+
+#sidebar{
+
+	position: fixed;
+	left: 50px;
+	top: 110px;
+	width: 170px;
+	 
+}
+
+#sidebar h4{
+	font-family: font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; ;
+	font-size: 17px;
+	color: #5C5D5D ;
+	border-bottom: 1px solid #e2e2e2;
+	padding-bottom: 12px;
+	letter-spacing: .5px;
+}
+
+#sidebar a{
+
+	text-decoration: none;
+	font-weight: 400;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: .5px;
+
+}
+
+#sidebar a:hover{
+	color: #93b874;
+	background-color: transparent;
+}	
+
+#sidebar li{
+
+	color: #93b874 ;
+	margin-top: 15px;
+	text-align: -webkit-match-parent;
+}
+
+#sidebar ul {
+	position: relative;
+	left: -25px;
+}
+
+#content{
+
+	
+	position: absolute;
+	top: 110px;
+	left: 270px;
+	width: 800px;
+	padding-left: 5px;
+}
+
+#form
+{
+	position: relative;
+	left :35%;
+	top: 0px;
+	padding: 15px;
+	border: 2px solid #93b874 ;
+	width: 200px;
+
+}
+
+#form h2{
+
+	font-family: font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; ;
+	font-size: 17px;
+	color: #5C5D5D ;
+	border-bottom: 1px solid #e2e2e2;
+	padding-bottom: 12px;
+	letter-spacing: .5px;
+	width: 230px;
+	height: 20px;
+	background-color: #93b874;
+	position: relative;
+	left: -15px;
+	top: -27px;
+	text-align: center;
+	padding-top: 20px; 
+
+}

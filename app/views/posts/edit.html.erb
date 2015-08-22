@@ -1,6 +1,11 @@
-<h1>Editing Post</h1>
+<% if current_user.id==@post.user_id %>
 
+<h1>Editing Post</h1>
 <%= render 'form' %>
 
-<%= link_to 'Show', @post %> |
+<%= link_to 'Show', @post %> 
+<% else %>
+
+<h2> U r not authorized to edit this post </h2>
+<%end%>
 <%= link_to 'Back', posts_path %>
