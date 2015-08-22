@@ -16,10 +16,11 @@
 		</div> <!-- end of logo div -->
 
 		<div id="search">
-			<form action="#">
-				<input id= "box" type='text' name='query'>
-				<input id="searchButton" type='submit' value="Search">
-			</form>
+			<%= form_tag("/search", method: "get") do %>
+  				<%= label_tag(:q, "Search for:") %>
+  				<%= text_field_tag(:q) %>
+  				<%= submit_tag("Search") %>
+			<% end %>
 		</div> <!-- end of search div -->
 
 		<div id="buttons">
