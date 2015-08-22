@@ -1,10 +1,20 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  
-  # GET /posts/1
-  # GET /posts/1.json
+  skip_before_filter :verify_authenticity_token, :only => :create   
+
+  def index
+    @posts = Post.all
+  end
+
   def show
+  end
+
+  def show_cat
+
+      @posts = Post.where(:category => params[:cat] ,:kind => params[:kind])
+      @cat = params[:cat]
+      @user = false
+      render 'index'
   end
 
   # GET /posts/new
@@ -19,17 +29,13 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = current_user.posts.build post_params
+    @post = current_user.posts.build ({:title => params[:title],:body => params[:body],:category => params[:category] ,:kind => params[:kind]})
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+    if(@post.save)
+      redirect_to "/posts/#{@post.id}"
+    else
+      redirect_to '/'
+    end    
   end
 
   # PATCH/PUT /posts/1
@@ -70,7 +76,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body , :category)
     end
 
 

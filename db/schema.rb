@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820135757) do
+ActiveRecord::Schema.define(version: 20150822160910) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20150820135757) do
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "comment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "seen",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150820135757) do
     t.text     "body"
     t.string   "category"
     t.integer  "user_id"
+    t.string   "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,9 +53,12 @@ ActiveRecord::Schema.define(version: 20150820135757) do
     t.string   "last_sign_in_ip"
     t.string   "name"
     t.string   "department"
-    t.string   "prof_pic_path"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,0 +1,50 @@
+
+#show_post{
+
+
+	padding-top: 20px;
+	padding-bottom: 35px;
+	border-bottom: 1px solid #e2e2e2;
+
+}
+
+#show_post h2{
+
+	line-height: 25px;
+}
+
+
+
+.option
+{
+	width: 70px;
+	height: 30px;
+	background: #f6f6f6;
+	font-family: "Comic Sans MS", cursive, sans-serif ; 
+	width: 70px;
+	text-align: center;
+	font-size: 15px;
+	border: 1px solid #A3A375 ;
+}
+
+.option a{
+
+	text-decoration: none;
+	position: relative;
+	bottom: -3px;
+	color: #000000 ;
+}
+
+.option a:hover{
+
+	background-color: transparent;
+	color: #41412F
+
+}
+
+#destroy{
+
+	position: relative;
+	left: 70px;
+	top: -32px;
+}

@@ -1,9 +1,8 @@
   <div id="form">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put ,multipart: true}) do |f| %>
     <%= devise_error_messages! %>
-
     <div class="field">
       <%= f.label :name %><br />
       <%= f.text_field :name %>
@@ -38,9 +37,15 @@
       <%= f.password_field :current_password, autocomplete: "off" %>
     </div>
 
+    <div class="field">
+        <%= f.label "Profile Picture" %><br />
+      <%= f.file_field :photo %> <br/><br/>
+    </div>
+    
     <div class="actions">
       <%= f.submit "Update" %>
     </div>
+
   <% end %>
 
   <h3>Cancel my account</h3>

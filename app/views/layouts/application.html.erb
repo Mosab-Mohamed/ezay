@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
-  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <title>Home</title>  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -25,44 +24,25 @@
 		<div id="buttons">
 				<ul>
 					<% if user_signed_in? %>
-					<li> <a href=""><%=image_tag("home.png", alt: "",width: 20)%><span>Home</span></a> </li>
+					<li> <a href="/"><%=image_tag("home.png", alt: "",width: 20)%><span>Home</span></a> </li>
 					<li> <a href=""><%=image_tag("write.png", alt: "",width: 18)%><span>Write</span></a> </li>
-					<li> <a href=""><%=image_tag("notifications.png", alt: "",width: 20)%><span>Notifications</span></a></li>
-					<li> <a href=""><%=image_tag("settings.png", alt: "",width: 20)%> <span>Settings</span></a></li>
+					<li> <a href=""><%=image_tag( notification_icon, alt: "",width: 30)%><span id="noti">Notifications</span></a></li>
+					<li> <a href=""><%=image_tag("settings.png", alt: "",width: 20)%> <span >Settings</span></a></li>
+					<li> <a href=<%= destroy_user_session_path %>><%=image_tag("logout.png", alt: "",width: 20)%> <span>Logout</span></a></li>
 				</ul>	
-				<button id="newQ" type="button" onclick="location.href='/'">Ask Question </button>
 				<% else %>
-					<li> <%= link_to("Sign In",new_user_session_path) %> </li>
-					<li> <%= link_to("Sign UP",new_user_registration_path) %> </li>
+					<li> <a href=<%= new_user_session_path %>><%=image_tag("login.png", alt: "",width: 20)%> <span>Login</span></a></li>
+					<li> <a href=<%= new_user_registration_path %>><%=image_tag("signup.png", alt: "",width: 20)%> <span>Sign Up</span></a></li>
 				<% end %>
 
-
 		</div> <!-- end of buttons div -->
-
 	</div> <!-- end of header div -->   
 		
-	<div id="sidebar">
-
-		<h4>Categories</h4>
-		<ul>
-			<li> <a href="">Categories A</a> </li>
-			<li> <a href="">Categories B</a> </li>
-			<li> <a href="">Categories C</a></li>
-			<li> <a href="">Categories D</a> </li>
-			<li> <a href="">Categories E</a> </li>
-			<li> <a href="">Categories F</a> </li>
-			<li> <a href="">Categories G</a> </li>
-			<li> <a href="">Categories H</a> </li>
-			<li> <a href="">Categories I</a> </li>
-			<li> <a href="">Categories J</a> </li>
-		</ul>
-
-	</div> <!-- end of sidebar div -->   
-
 	<div id="content">
 		
 		<%= yield %>
 	</div>
+
 
 </body>
 </html>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root 'user#home'
   get 'posts/search' => 'posts#search'
-  resources :posts , :except => [:index]
+  get 'posts/show_cat/:cat' => 'posts#show_cat'
+  resources :posts 
   devise_for :users, :controllers => { registrations: 'users/registrations' , sessions: 'users/sessions' }
 end
