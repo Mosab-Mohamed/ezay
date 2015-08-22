@@ -58,6 +58,7 @@ class PostsController < ApplicationController
 
   #GET/posts/search
   def search
+      search_results
   end
 
   private
@@ -68,9 +69,18 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      Rails.Logger = Logger.new(STDOUT)
-      logger.debug "========================================================================================================="
       params.require(:post).permit(:title, :body)
+    end
+
+    def search_results
+      @results = Array.new 
+      @posts = Post.all
+      @posts.each do |post|
+        if post.title.index(params[:q])
+          @results.push(post)
+        end
+      end
+      return @results
     end
 
 
