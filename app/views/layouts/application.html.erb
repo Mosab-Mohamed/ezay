@@ -16,10 +16,11 @@
 		</div> <!-- end of logo div -->
 
 		<div id="search">
-			<form action="#">
-				<input id= "box" type='text' name='query'>
-				<input id="searchButton" type='submit' value="Search">
-			</form>
+			<%= form_tag("/search", method: "get") do %>
+  				<%= label_tag(:q, "Search for:") %>
+  				<%= text_field_tag(:q) %>
+  				<%= submit_tag("Search") %>
+			<% end %>
 		</div> <!-- end of search div -->
 
 		<div id="buttons">
@@ -48,6 +49,7 @@
 			<li> <a href="">Categories A</a> </li>
 			<li> <a href="">Categories B</a> </li>
 			<li> <a href="">Categories C</a> </li>
+			<li> <a href="">Categories C</a></li>
 			<li> <a href="">Categories D</a> </li>
 			<li> <a href="">Categories E</a> </li>
 			<li> <a href="">Categories F</a> </li>
