@@ -27,6 +27,7 @@ gem 'devise'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'pg'
 gem 'heroku'
+gem 'rails_12factor', group: :production
 
 
 

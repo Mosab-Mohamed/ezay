@@ -17,7 +17,11 @@
 <% end %>
 
 <div id="newComment">
-	
+	<%= image_tag current_user.photo.url(:small)%>	
+	<h3> <%= current_user.name %> </h3>
 
-
+	<%= form_for @post, :url => { :controller =>'comments' ,:action => "create" }  do |f|  %>
+    <%= f.text_area  :body %>
+    <%= f.submit "Add Comment" %>
+ 	<%end%>
 </div>	
