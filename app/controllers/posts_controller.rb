@@ -1,23 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-<<<<<<< HEAD
   skip_before_filter :verify_authenticity_token, :only => :create   
 
-=======
-  before_action :authenticate_user!, except: [:search]
-  
-  # GET /posts
-  # GET /posts.json
->>>>>>> ff888fa360b655b8ba619ac5fc3de236b2715b0d
-  def index
-    @posts = Post.all
-  end
 
-<<<<<<< HEAD
-=======
-  # GET /posts/1
-  # GET /posts/1.json
->>>>>>> ff888fa360b655b8ba619ac5fc3de236b2715b0d
   def show
   end
 
@@ -29,14 +14,7 @@ class PostsController < ApplicationController
       render 'index'
   end
 
-  # GET /posts/new
-  def new
-    @post = current_user.posts.build
-  end 
-
-  def OwnQuestions
-    @posts = Post.all.select { |post| post.user_id == current_user.id }
-  end
+ 
 
   # GET /posts/1/edit
   def edit
@@ -80,7 +58,9 @@ class PostsController < ApplicationController
 
   #GET/posts/search
   def search
-      search_results
+      @posts = search_results
+      @user = true 
+      render 'index'
   end
 
   private
