@@ -5,6 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :writer_name
       t.string :writer_pic_path
       t.integer :post_id
+      t.integer :user_id
 
       t.timestamps null: false
     end

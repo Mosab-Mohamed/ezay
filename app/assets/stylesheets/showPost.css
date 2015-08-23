@@ -2,15 +2,25 @@
 #show_post{
 
 
-	padding-top: 20px;
-	padding-bottom: 35px;
-	border-bottom: 1px solid #e2e2e2;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	border: 1px solid #e2e2e2;
 
 }
 
-#show_post h2{
+#show_post h1{
 
 	line-height: 25px;
+}
+
+#show_post span{
+	font-weight: 400;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+
 }
 
 
@@ -47,4 +57,68 @@
 	position: relative;
 	left: 70px;
 	top: -32px;
+}
+
+
+#show_post .userInfo
+{
+	border-bottom: 1px solid #e2e2e2;		
+	height: 80px;
+
+}
+#newComment{
+
+	background-color: #f6f6f6;
+	border: 1px solid #e2e2e2;
+}
+.userInfo img{
+
+	border-radius: 50%;
+	position: relative;
+	left: 15px;
+	top: 15px;
+}
+
+.userInfo h3 {
+
+	color: #000000;
+	position: relative;
+	left:90px;
+	top: -45px;
+	font-size: 17px;
+}
+
+#text
+{
+	position: relative;
+	left: 17px; 
+	top: -15px;
+}
+
+#submit{
+
+	padding-bottom: 8px;
+}
+#submit input{
+
+	position: relative;
+	left: 16px;
+	top: -8px;
+	height: 40px;
+	width: 150px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.comment{
+
+	margin-top: 50px;
+	border-top: 1px solid #e2e2e2
+}
+
+.comment span{
+	font-weight: 400;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+    padding-left: 20px;
 }

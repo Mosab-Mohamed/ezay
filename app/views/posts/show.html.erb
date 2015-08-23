@@ -1,7 +1,11 @@
 <%= render 'posts/sides'  %>
 
 <div id="show_post">
-	<h2><%= breaking_wrap_wrap(@post.title, col = 40) %></h2>
+	<div class="userInfo">
+		<%= image_tag @post.user.photo.url(:small)%>	
+		<h3> <%= @post.user.name %> </h3>
+	</div>
+	<h1><%= breaking_wrap_wrap(@post.title, col = 40) %></h1>
 	<span><%= breaking_wrap_wrap(@post.body, col = 55) %></span>
 </div>
 
@@ -13,15 +17,35 @@
 
 	<div class = "option" id="destroy">
 	<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-	</div>
+	</div><br />
 <% end %>
 
 <div id="newComment">
-	<%= image_tag current_user.photo.url(:small)%>	
-	<h3> <%= current_user.name %> </h3>
+	<div class="userInfo">
+		<%= image_tag current_user.photo.url(:small)%>	
+		<h3> <%= current_user.name %> </h3>
+	</div>	
+	<form  method = "POST"  action="/comments/create?post_id=<%=@post.id %>&user_id=<%= current_user.id %>">
+	<div id="text">
+    	<textarea cols="70" , rows="10" name="body"></textarea>
+    </div>
+    <div id="submit">
+    	<input type="submit" value="Add Comment"> 
+    </div> 
+ 	</form>
+</div> <br /><br /><br />
 
-	<%= form_for @post, :url => { :controller =>'comments' ,:action => "create" }  do |f|  %>
-    <%= f.text_area  :body %>
-    <%= f.submit "Add Comment" %>
- 	<%end%>
-</div>	
+
+<% for i in 0... @users.length %>
+	<div class="comment">
+		<div class="userInfo">
+		  <%= image_tag @users[i].photo.url(:small)%>
+		  <h3> <%= @users[i].name %></h3>
+		 </div> 
+	  <span><%= breaking_wrap_wrap(@comments[i].body, col = 55) %></span>
+	</div>
+<% end %>
+ 
+
+
+

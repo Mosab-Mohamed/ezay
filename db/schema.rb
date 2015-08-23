@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150822160910) do
     t.string   "writer_name"
     t.string   "writer_pic_path"
     t.integer  "post_id"
+    t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

@@ -28,7 +28,7 @@
 					<li> <a href="/"><%=image_tag("home.png", alt: "",width: 20)%><span>Home</span></a> </li>
 					<li> <a href=""><%=image_tag("write.png", alt: "",width: 18)%><span>Write</span></a> </li>
 					<li> <a href=""><%=image_tag( notification_icon, alt: "",width: 30)%><span id="noti">Notifications</span></a></li>
-					<li> <a href=""><%=image_tag("settings.png", alt: "",width: 20)%> <span >Settings</span></a></li>
+					<li> <a href="/users/edit"><%=image_tag("settings.png", alt: "",width: 20)%> <span >Settings</span></a></li>
 					<li> <a href=<%= destroy_user_session_path %>><%=image_tag("logout.png", alt: "",width: 20)%> <span>Logout</span></a></li>
 				</ul>	
 				<% else %>

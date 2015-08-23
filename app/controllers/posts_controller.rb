@@ -4,6 +4,13 @@ class PostsController < ApplicationController
 
 
   def show
+    @users = Array.new
+    @comments= @post.comments .reverse
+    
+    @comments.each do |comment|
+      @users << User.find(comment.user_id)
+    end
+
   end
 
   def show_cat
