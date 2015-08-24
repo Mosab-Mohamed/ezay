@@ -5,7 +5,7 @@ module NotificationsHelper
 		@notifications = current_user.notifications.where(:seen => false )
 
 		if @notifications.length >0
-			"notifications.png"
+			"notifications.PNG"
 		else
 			"notifications2.png"
 		end

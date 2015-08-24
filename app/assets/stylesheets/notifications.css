@@ -1,0 +1,25 @@
+
+#notification{
+	border: 1px solid #C8C8AC ;
+	padding: 3px;
+	margin-bottom: 10px;
+}
+
+#notification img {
+	border-radius: 50%;
+}
+
+#noti_body {
+	position: relative;
+	top :-35px;
+	left: 63px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#noti_time
+{
+	position: relative;
+	top: -40px;
+	left: 5px;
+}
