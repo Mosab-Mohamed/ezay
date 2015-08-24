@@ -1,0 +1,8 @@
+<%= render 'posts/sides'  %>
+
+
+<h1>Notifications</h1>
+<% @notificationsNotSeen.each do |n| %>
+	<% @post = n.comment.post %>
+	<a  class="Notification_posts" href='/posts/<%=@post.id%>'><%=  @post.title %></a>
+<%end%>
