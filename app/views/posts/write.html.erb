@@ -1,0 +1,24 @@
+<%= render '/posts/sides'%>
+
+<div id="write">
+	<h3>Wrriting a Post ...</h3>
+		<form method="post" action="/posts?kind=post">
+			<span>Title : </span><input  id="post_title" type="text" name="title"><br /><br />
+			<span>Category : </span><select name="category">
+				<option value="a">A</option>
+				<option value="b">B</option>
+				<option value="c">C</option>
+				<option value="d">D</option>
+				<option value="e">E</option>
+				<option value="f">F</option>
+				<option value="g">G</option>
+				<option value="h">H</option>
+				<option value="i">I</option>
+				<option value="j">J</option>	
+			</select><br /><br />
+			<textarea  name="body" rows="30" cols="70" ></textarea><br /> 
+			<input id="ask" type="submit" value="POST">
+		</form>
+</div>
+<br/>
+<hr />

@@ -84,35 +84,25 @@
 	color: #000000;
 	position: relative;
 	left:90px;
-<<<<<<< HEAD
-	top: -45px;
-	font-size: 17px;
-}
-
-=======
 	top: -35px;
 	font-size: 17px;
 	font-weight: 600;
 }
 
 
->>>>>>> 6b169120832efd91729b2ae5af87957652742d93
 #text
 {
 	position: relative;
 	left: 17px; 
-<<<<<<< HEAD
 	top: -15px;
 }
 
 #submit{
 
-=======
 	top: -30px;
 }
 
 #submit{
->>>>>>> 6b169120832efd91729b2ae5af87957652742d93
 	padding-bottom: 8px;
 }
 #submit input{
@@ -121,11 +111,7 @@
 	left: 16px;
 	top: -8px;
 	height: 40px;
-<<<<<<< HEAD
-	width: 150px;
-=======
 	width: 120px;
->>>>>>> 6b169120832efd91729b2ae5af87957652742d93
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -165,7 +151,16 @@
 	padding: 5px;
 }
 
-a {
+#Question_cat a {
 	text-decoration: none;
 }
 
+#Question_cat a:hover {
+	background-color: transparent;
+} 
+
+#destroy_comment{
+	position: relative;
+	left: 87%;
+	top: -138px;
+}

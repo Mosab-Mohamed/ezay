@@ -10,7 +10,7 @@
 <% @posts.each do |post|%>
 	
 	<div class="post">	
-		<div id="Question_cat">		<a href="/"><%= post.category %></a>	</div><br /><br />
+		<div id="Question_cat">	<a href="/posts/show_cat/<%= post.category%>?kind=question"><%= post.category %></a>	</div><br /><br />
 
 		<a  class="title" href='/posts/<%= post.id%>' > <%= breaking_wrap_wrap(post.title, col = 55) %> </a> <br />
 		<span> <%= post.created_at %><span><br />
