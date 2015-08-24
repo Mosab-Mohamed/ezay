@@ -94,6 +94,11 @@
 {
 	position: relative;
 	left: 17px; 
+	top: -15px;
+}
+
+#submit{
+
 	top: -30px;
 }
 
@@ -146,9 +151,16 @@
 	padding: 5px;
 }
 
-a {
+#Question_cat a {
 	text-decoration: none;
 }
 
+#Question_cat a:hover {
+	background-color: transparent;
+} 
 
-
+#destroy_comment{
+	position: relative;
+	left: 87%;
+	top: -138px;
+}

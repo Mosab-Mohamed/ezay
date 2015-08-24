@@ -1,0 +1,33 @@
+#write
+{
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 1px solid #e2e2e2;
+
+	font-size: 15px;
+}
+#write h3
+{
+	border-bottom: 1px solid #e2e2e2 ;
+	padding-bottom: 15px;
+}
+
+#post_title{
+
+	height: 40px;
+	width: 513px; 
+}
+
+#write select {
+
+	height: 30px;
+	width: 520px; 	
+}
+
+#write span {
+
+	font-size: 15px;
+	font-weight: bold;
+
+}
