@@ -1,14 +1,23 @@
 <%= render 'posts/sides'  %>
 
+
 <div id="show_post">
-	<div class="userInfo">
-		<%= image_tag @post.user.photo.url(:small)%>	
-		<h3> <%= @post.user.name %> </h3>
+	<div id="Question_head">
+		<div id="Question_cat">
+			<a href="/"><%= @post.category  %></a>
+		</div>
+		<div id="Question_time">
+			<%= @post.created_at %>
+		</div>
 	</div>
 	<h1><%= breaking_wrap_wrap(@post.title, col = 40) %></h1>
-	<span><%= breaking_wrap_wrap(@post.body, col = 45) %></span>
+	<div  class="userInfo">
+		<%= image_tag @post.user.photo.url(:small)%>
+		<h3> <%= @post.user.name %> </h3>
+	</div>
+	<br />
+	<span ><%= breaking_wrap_wrap(@post.body, col = 55) %></span>
 </div>
-
 <% if (current_user.id == @post.user_id)%>
 	<div class = "option" id="edit">
 	<!-- <a  href=<%= edit_post_path(@post) %>>Edit</a> -->
@@ -27,7 +36,11 @@
 	</div>	
 	<form  method = "POST"  action="/comments/create?post_id=<%=@post.id %>&user_id=<%= current_user.id %>">
 	<div id="text">
+<<<<<<< HEAD
     	<textarea cols="70" , rows="10" name="body"></textarea>
+=======
+    	<textarea cols="50" , rows="2" name="body"></textarea>
+>>>>>>> 6b169120832efd91729b2ae5af87957652742d93
     </div>
     <div id="submit">
     	<input type="submit" value="Add Comment"> 
@@ -36,6 +49,13 @@
 </div> <br /><br /><br />
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 6b169120832efd91729b2ae5af87957652742d93
 <% for i in 0... @users.length %>
 	<div class="comment">
 		<div class="userInfo">
@@ -43,7 +63,11 @@
 		  <h3> <%= @users[i].name %></h3>
 		 </div> 
 	  <span><%= breaking_wrap_wrap(@comments[i].body, col = 55) %></span>
+<<<<<<< HEAD
 	</div></br></br></br></br>
+=======
+	</div>
+>>>>>>> 6b169120832efd91729b2ae5af87957652742d93
 <% end %>
  
 

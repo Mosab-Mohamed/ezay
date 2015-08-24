@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_attached_file :photo , :styles => {:small => "55x55>"}
   validates :name , :department ,presence: true 

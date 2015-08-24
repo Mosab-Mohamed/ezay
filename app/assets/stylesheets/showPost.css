@@ -84,19 +84,35 @@
 	color: #000000;
 	position: relative;
 	left:90px;
+<<<<<<< HEAD
 	top: -45px;
 	font-size: 17px;
 }
 
+=======
+	top: -35px;
+	font-size: 17px;
+	font-weight: 600;
+}
+
+
+>>>>>>> 6b169120832efd91729b2ae5af87957652742d93
 #text
 {
 	position: relative;
 	left: 17px; 
+<<<<<<< HEAD
 	top: -15px;
 }
 
 #submit{
 
+=======
+	top: -30px;
+}
+
+#submit{
+>>>>>>> 6b169120832efd91729b2ae5af87957652742d93
 	padding-bottom: 8px;
 }
 #submit input{
@@ -105,7 +121,11 @@
 	left: 16px;
 	top: -8px;
 	height: 40px;
+<<<<<<< HEAD
 	width: 150px;
+=======
+	width: 120px;
+>>>>>>> 6b169120832efd91729b2ae5af87957652742d93
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -122,3 +142,30 @@
     line-height: 1.4;
     padding-left: 20px;
 }
+
+#Question_head{
+	position: relative;
+
+}
+
+#Question_cat{
+	float: left;
+	background-color: #e3e3e3;
+	display:inline-block;
+	border-radius:6px;
+	border:1px solid #e3e3e3;
+	padding:2px 2px;
+	margin-top: 2px;
+}
+
+#Question_time{
+	display:inline-block;
+	padding: 0px 5px 5px 20px;
+	color: 	#999999;
+	padding: 5px;
+}
+
+a {
+	text-decoration: none;
+}
+
