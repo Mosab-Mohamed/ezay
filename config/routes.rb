@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'posts/show_cat/:cat' => 'posts#show_cat'
   get 'posts/write' => 'posts#write'
   post 'comments/create' => 'comments#create'
+  get '/notifications/Notifications_show' => 'notifications#Notifications_show'
   post 'posts/:id' => 'posts#update'
   delete 'comments/delete/:comment_id' => 'comments#delete'
   resources :posts 

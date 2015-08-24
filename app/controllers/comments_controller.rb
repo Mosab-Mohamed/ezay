@@ -8,9 +8,20 @@ class CommentsController < ApplicationController
 		if(@post!= nil)
 			@comment=@post.comments.create(:body => params[:body] , :user_id => current_user.id)
 
+<<<<<<< HEAD
+		if(@comment.save)
+			####Notifactions teller####
+				if (@post.user_id != @comment.user_id)
+					@user = User.find(@post.user_id)
+					@user.notifications.create(:comment_id => @comment.id )
+				end
+			########
+			redirect_to "/posts/#{@id}"
+=======
 			if(@comment.save)
 				redirect_to "/posts/#{@id}"
 			end
+>>>>>>> e00b3c1ca5ff1317e6b83bc52ed91c9eae3e886d
 		end
 	end
 
