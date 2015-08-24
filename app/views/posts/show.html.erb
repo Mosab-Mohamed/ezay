@@ -6,7 +6,7 @@
 		<h3> <%= @post.user.name %> </h3>
 	</div>
 	<h1><%= breaking_wrap_wrap(@post.title, col = 40) %></h1>
-	<span><%= breaking_wrap_wrap(@post.body, col = 55) %></span>
+	<span><%= breaking_wrap_wrap(@post.body, col = 45) %></span>
 </div>
 
 <% if (current_user.id == @post.user_id)%>
@@ -43,7 +43,7 @@
 		  <h3> <%= @users[i].name %></h3>
 		 </div> 
 	  <span><%= breaking_wrap_wrap(@comments[i].body, col = 55) %></span>
-	</div>
+	</div></br></br></br></br>
 <% end %>
  
 
