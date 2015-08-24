@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body >
+
+	<div id="header">
+
+		<div id="logo">
+			<a href="/"> <%=image_tag("logo.PNG", alt: "Logo")%> </a>
+		</div> <!-- end of logo div -->
+
+		<div id="search">
+			<%= form_tag("/posts/search", method: "get") do %>
+  				<%= label_tag(:q, "Search for:") %>
+  				<%= text_field_tag(:q) %>
+  				<%= submit_tag("Search") %>
+			<% end %>
+		</div> <!-- end of search div -->
+
+		<div id="buttons">
+				<ul>
+					<% if user_signed_in? %>
+					<li> <a href="/"><%=image_tag("home.png", alt: "",width: 20)%><span>Home</span></a> </li>
+					<li> <a href=""><%=image_tag("write.png", alt: "",width: 18)%><span>Write</span></a> </li>
+					<li> <a href=""><%=image_tag( notification_icon, alt: "",width: 30)%><span id="noti">Notifications</span></a></li>
+					<li> <a href="/users/edit"><%=image_tag("settings.png", alt: "",width: 20)%> <span >Settings</span></a></li>
+					<li> <a href=<%= destroy_user_session_path %>><%=image_tag("logout.png", alt: "",width: 20)%> <span>Logout</span></a></li>
+				</ul>	
+				<% else %>
+					<li> <a href=<%= new_user_session_path %>><%=image_tag("login.png", alt: "",width: 20)%> <span>Login</span></a></li>
+					<li> <a href=<%= new_user_registration_path %>><%=image_tag("signup.png", alt: "",width: 20)%> <span>Sign Up</span></a></li>
+				<% end %>
+
+		</div> <!-- end of buttons div -->
+	</div> <!-- end of header div -->   
+		
+	<div id="content">
+		
+		<%= yield %>
+	</div>
+
+
+</body>
+</html>

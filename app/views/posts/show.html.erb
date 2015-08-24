@@ -1,0 +1,73 @@
+<%= render 'posts/sides'  %>
+
+
+
+
+
+<div id="show_post">
+	<div id="Question_head">
+		<div id="Question_cat">
+			<a href="/"><%= @post.category  %></a>
+		</div>
+		<div id="Question_time">
+			<%= @post.created_at %>
+		</div>
+	</div>
+	<h1><%= breaking_wrap_wrap(@post.title, col = 40) %></h1>
+	<div  class="userInfo">
+		<%= image_tag @post.user.photo.url(:small)%>
+		<h3> <%= @post.user.name %> </h3>
+	</div>
+	<br />
+	<span ><%= breaking_wrap_wrap(@post.body, col = 55) %></span>
+</div>
+
+
+<% if (current_user.id == @post.user_id)%>
+	<div class = "option" id="edit">
+	<!-- <a  href=<%= edit_post_path(@post) %>>Edit</a> -->
+	<a  href="#">Edit</a>
+	</div>
+
+	<div class = "option" id="destroy">
+	<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</div><br />
+<% end %>
+
+
+
+
+
+<div id="newComment">
+	<div class="userInfo">
+		<%= image_tag current_user.photo.url(:small)%>	
+		<h3> <%= current_user.name %> </h3>
+	</div>	
+	<form  method = "POST"  action="/comments/create?post_id=<%=@post.id %>&user_id=<%= current_user.id %>">
+	<div id="text">
+    	<textarea cols="50" , rows="2" name="body"></textarea>
+    </div>
+    <div id="submit">
+    	<input type="submit" value="Add Comment"> 
+    </div> 
+ 	</form>
+</div> <br /><br /><br />
+
+
+
+
+
+
+<% for i in 0... @users.length %>
+	<div class="comment">
+		<div class="userInfo">
+		  <%= image_tag @users[i].photo.url(:small)%>
+		  <h3> <%= @users[i].name %></h3>
+		 </div> 
+	  <span><%= breaking_wrap_wrap(@comments[i].body, col = 55) %></span>
+	</div>
+<% end %>
+ 
+
+
+

@@ -1,0 +1,40 @@
+<div id="sidebar">
+
+		<h4>Categories</h4>
+		<ul>
+			<li> <a href="/posts/show_cat/a?kind=question">Category A</a> </li>
+			<li> <a href="/posts/show_cat/b?kind=question">Category B</a> </li>
+			<li> <a href="/posts/show_cat/c?kind=question">Category C</a></li>
+			<li> <a href="/posts/show_cat/d?kind=question">Category D</a> </li>
+			<li> <a href="/posts/show_cat/e?kind=question">Category E</a> </li>
+			<li> <a href="/posts/show_cat/f?kind=question">Category F</a> </li>
+			<li> <a href="/posts/show_cat/g?kind=question">Category G</a> </li>
+			<li> <a href="/posts/show_cat/h?kind=question">Category H</a> </li>
+			<li> <a href="/posts/show_cat/i?kind=question">Category I</a> </li>
+			<li> <a href="/posts/show_cat/j?kind=question">Category J</a> </li>
+		</ul>
+
+</div> <!-- end of sidebar div -->   
+
+<div id="rightSide">
+		<h3>Ask a question</h3>
+		<form method="post" action="/posts?kind=question">
+			<span>Title : </span><input  id="qtitle" type="text" name="title"><br /><br />
+			<span>Category : </span><select name="category">
+				<option value="a">A</option>
+				<option value="b">B</option>
+				<option value="c">C</option>
+				<option value="d">D</option>
+				<option value="e">E</option>
+				<option value="f">F</option>
+				<option value="g">G</option>
+				<option value="h">H</option>
+				<option value="i">I</option>
+				<option value="j">J</option>	
+			</select><br /><br />
+			<textarea  name="body" rows="10" cols="30" ></textarea><br /> 
+			<input id="ask" type="submit" value="Ask">
+
+		</form>
+
+	</div>
