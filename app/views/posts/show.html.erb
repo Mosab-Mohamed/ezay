@@ -38,7 +38,7 @@
 		 </div> 
 	  <span><%= breaking_wrap_wrap(comment.body, col = 55) %></span>
 	  <% if current_user.id == comment.user.id %>
-		  	<div class = "option" id="destroy_comment">
+		  	<div class = "option" id="destroy_comment" data-remote="true">
 				<a data-method='delete' href="/comments/delete/<%=comment.id%>?post_id=<%=@post.id%>" >Delete</a>
 			</div>
 		<% end %>
