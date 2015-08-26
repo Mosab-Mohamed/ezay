@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 						@user = User.find(@post.user_id)
 						@user.notifications.create(:comment_id => @comment.id )
 					end
-				########
+				#########
 				redirect_to "/posts/#{@id}"
 			end
 		end
