@@ -58,3 +58,6 @@
 
 }
 
+.post .comment{
+	word-wrap: break-word;
+}

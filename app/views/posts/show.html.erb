@@ -28,22 +28,8 @@
 	<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
 	</div>
 <% end %>
-<br />
-<div id="newComment">
-	<div class="userInfo">
-		<%= image_tag current_user.photo.url(:small)%>	
-		<h3> <%= current_user.name %> </h3>
-	</div>	
-	<form  method = "POST"  action="/comments/create?post_id=<%=@post.id %>">
-	<div id="text">
-    	<textarea cols="70" , rows="10" name="body"></textarea>
-    </div>
-    <div id="submit">
-    	<input type="submit" value="Add Comment"> 
-    </div> 
- 	</form>
-</div> <br /><br /><br />
 
+<div class="allComments" data-remote="true">
 <% @post.comments.reverse.each do |comment| %>
 	<div class="comment">
 		<div class="userInfo">
@@ -52,13 +38,33 @@
 		 </div> 
 	  <span><%= breaking_wrap_wrap(comment.body, col = 55) %></span>
 	  <% if current_user.id == comment.user.id %>
-		  	<div class = "option" id="destroy_comment">
+		  	<div class = "option" id="destroy_comment" data-remote="true">
 				<a data-method='delete' href="/comments/delete/<%=comment.id%>?post_id=<%=@post.id%>" >Delete</a>
 			</div>
 		<% end %>
 	</div></br></br></br></br>
 <% end %>
+</div>
+
+<br />
+<div id="newComment">
+	<div class="userInfo">
+		<%= image_tag current_user.photo.url(:small)%>	
+		<h3> <%= current_user.name %> </h3>
+	</div>
+	<form  method = "POST"  action="/comments/create?post_id=<%=@post.id %>" data-remote="true">
+		<div id="text">
+	    	<textarea cols="70" , rows="10" name="body"></textarea>
+	    </div>
+	    <div id="submit">
+	    	<input type="submit" value="Add Comment"> 
+	    </div> 
+ 	</form>
+</div> <br /><br /><br />
+
+
  
 <hr />
+
 
 
