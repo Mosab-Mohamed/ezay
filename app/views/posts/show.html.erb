@@ -1,7 +1,7 @@
 <%= render 'posts/sides'  %>
 
 
-<div id="show_post">
+<div id="show_post" data-remote="true">
 	<div id="Question_head">
 		<div id="Question_cat">
 			<a href="/posts/show_cat/<%= @post.category%>?kind=question"><%= @post.category  %></a>
@@ -18,16 +18,18 @@
 	<br />
 	<span ><%= breaking_wrap_wrap(@post.body, col = 55) %></span>
 </div>
-<% if (current_user.id == @post.user_id)%>
-	<div class = "option" id="edit">
-	<!-- <a  href=<%= edit_post_path(@post) %>>Edit</a> -->
-	<a  href="/posts/<%=@post.id%>/edit">Edit</a>
-	</div>
+<div id="update_post">
+	<% if (current_user.id == @post.user_id)%>
+		<div class = "option" id="edit" >
+		<!-- <a  href=<%= edit_post_path(@post) %>>Edit</a> -->
+		<a  href="/posts/<%=@post.id%>/edit" data-remote="true">Edit</a>
+		</div>
 
-	<div class = "option" id="destroy">
-	<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-	</div>
-<% end %>
+		<div class = "option" id="destroy">
+		<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</div>
+	<% end %>
+</div>
 
 <div class="allComments" data-remote="true">
 <% @post.comments.reverse.each do |comment| %>
@@ -37,8 +39,8 @@
 		  <h3> <%= comment.user.name %></h3>
 		 </div> 
 	  <span><%= breaking_wrap_wrap(comment.body, col = 55) %></span>
-	  <% if current_user.id == comment.user.id %>
-		  	<div class = "option" id="destroy_comment" data-remote="true">
+	  <% if current_user.id == comment.user.id or current_user.id==@post.user_id%>
+		  	<div class = "option" id="destroy_comment" >
 				<a data-method='delete' href="/comments/delete/<%=comment.id%>?post_id=<%=@post.id%>" >Delete</a>
 			</div>
 		<% end %>
