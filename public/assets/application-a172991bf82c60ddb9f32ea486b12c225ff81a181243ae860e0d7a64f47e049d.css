@@ -225,6 +225,31 @@ button , #searchButton {
 	width: 70px;
 
 }
+
+#notification{
+	border: 1px solid #C8C8AC ;
+	padding: 3px;
+	margin-bottom: 10px;
+}
+
+#notification img {
+	border-radius: 50%;
+}
+
+#noti_body {
+	position: relative;
+	top :-35px;
+	left: 63px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#noti_time
+{
+	position: relative;
+	top: -40px;
+	left: 5px;
+}
 #filter{
 	padding-bottom: 8px;
 	border-bottom: 1px solid #e2e2e2;
@@ -285,10 +310,6 @@ button , #searchButton {
 
 }
 
-#prof_pic{
-
-	border-radius: 50%;
-}
 /* line 1, E:/Bitnami/rubystack-2.0.0-15/ezay/app/assets/stylesheets/scaffolds.scss */
 body {
   background-color: #fff;
@@ -372,15 +393,25 @@ div.field, div.actions {
 #show_post{
 
 
-	padding-top: 20px;
-	padding-bottom: 35px;
-	border-bottom: 1px solid #e2e2e2;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	border: 1px solid #e2e2e2;
 
 }
 
-#show_post h2{
+#show_post h1{
 
 	line-height: 25px;
+}
+
+#show_post span{
+	font-weight: 400;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+
 }
 
 
@@ -417,6 +448,145 @@ div.field, div.actions {
 	position: relative;
 	left: 70px;
 	top: -32px;
+}
+
+
+#show_post .userInfo
+{
+	border-bottom: 1px solid #e2e2e2;		
+	height: 80px;
+
+}
+#newComment{
+
+	background-color: #f6f6f6;
+	border: 1px solid #e2e2e2;
+}
+.userInfo img{
+
+	border-radius: 50%;
+	position: relative;
+	left: 15px;
+	top: 15px;
+}
+
+.userInfo h3 {
+
+	color: #000000;
+	position: relative;
+	left:90px;
+	top: -35px;
+	font-size: 17px;
+	font-weight: 600;
+}
+
+
+#text
+{
+	position: relative;
+	left: 17px; 
+	top: -15px;
+}
+
+#submit{
+
+	top: -30px;
+}
+
+#submit{
+	padding-bottom: 8px;
+}
+#submit input{
+
+	position: relative;
+	left: 16px;
+	top: -8px;
+	height: 40px;
+	width: 120px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.comment{
+
+	margin-top: 50px;
+	border-top: 1px solid #e2e2e2
+}
+
+.comment span{
+	font-weight: 400;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+    padding-left: 20px;
+}
+
+#Question_head{
+	position: relative;
+
+}
+
+#Question_cat{
+	float: left;
+	background-color: #e3e3e3;
+	display:inline-block;
+	border-radius:6px;
+	border:1px solid #e3e3e3;
+	padding:2px 2px;
+	margin-top: 2px;
+}
+
+#Question_time{
+	display:inline-block;
+	padding: 0px 5px 5px 20px;
+	color: 	#999999;
+	padding: 5px;
+}
+
+#Question_cat a {
+	text-decoration: none;
+}
+
+#Question_cat a:hover {
+	background-color: transparent;
+} 
+
+#destroy_comment{
+	position: relative;
+	left: 87%;
+	top: -138px;
+}
+#write
+{
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 1px solid #e2e2e2;
+
+	font-size: 15px;
+}
+#write h3
+{
+	border-bottom: 1px solid #e2e2e2 ;
+	padding-bottom: 15px;
+}
+
+#post_title{
+
+	height: 40px;
+	width: 513px; 
+}
+
+#write select {
+
+	height: 30px;
+	width: 520px; 	
+}
+
+#write span {
+
+	font-size: 15px;
+	font-weight: bold;
+
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
