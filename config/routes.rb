@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/notifications/Notifications_show' => 'notifications#Notifications_show'
   post 'posts/:id' => 'posts#update'
   delete 'comments/delete/:comment_id' => 'comments#delete'
+  get '/notifications/check_updates' => 'notifications#checkForupdates'
   resources :posts 
   devise_for :users, :controllers => { registrations: 'users/registrations' , sessions: 'users/sessions' }
 end

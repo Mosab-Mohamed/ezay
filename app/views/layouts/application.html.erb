@@ -6,7 +6,18 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body >
+<% if user_signed_in? %>
+<script type="text/javascript">
+		
+		function checkForUpdates()
+		{	
+			$.get('/notifications/check_updates');
+			setTimeout(checkForUpdates, 10000);
+		}
+</script>
+<% end %>
+
+<body  onload='checkForUpdates()' >
 
 	<div id="header">
 

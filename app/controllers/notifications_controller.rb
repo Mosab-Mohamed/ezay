@@ -18,6 +18,19 @@ class NotificationsController < ApplicationController
        		 noti.update_attribute(:seen , true)
     	end
 
+	end
 
+	def checkForupdates
+
+		newNoti = current_user.notifications.where( :popped => false )
+		if newNoti.length > 0
+			
+			newNoti.each do |noti|
+				noti.update_attribute(:popped,true)
+			end
+			respond_to do |f|
+				f.js { render 'newNotifications'}
+			end
+		end
 	end
 end

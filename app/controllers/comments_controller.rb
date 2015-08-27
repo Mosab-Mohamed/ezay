@@ -15,7 +15,9 @@ class CommentsController < ApplicationController
 						@user.notifications.create(:comment_id => @comment.id )
 					end
 				#########
-				redirect_to "/posts/#{@id}"
+				respond_to do |f|
+					f.js {render "posts/newComment"}
+				end 
 			end
 		end
 	end
@@ -26,8 +28,12 @@ class CommentsController < ApplicationController
 
 		if(@comment != nil)
 			@comment.destroy
+			
+			respond_to do |f|
+				f.js {render 'posts/removeComment'}
+			end 
 		end
-		redirect_to "/posts/#{params['post_id']}"
+		
 
 	end
 end
