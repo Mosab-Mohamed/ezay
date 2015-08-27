@@ -3,7 +3,8 @@ class CreateNotifications < ActiveRecord::Migration
     create_table :notifications do |t|
       t.integer :user_id
       t.integer :comment_id
-      t.boolean :seen , :default => false 
+      t.boolean :seen , :default => false
+      t.boolean :popped , :default => false
       t.timestamps null: false
     end
   end

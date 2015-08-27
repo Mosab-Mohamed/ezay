@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150822160910) do
     t.integer  "user_id"
     t.integer  "comment_id"
     t.boolean  "seen",       default: false
+    t.boolean  "popped",     default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end

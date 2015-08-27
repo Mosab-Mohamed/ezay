@@ -1,23 +1,36 @@
-class NotificationsController < ApplicationController
+ class NotificationsController < ApplicationController
+ 
+ 	def create
+ 		### create new notification
+ 			@user = User.find(@post.user_id)
+ 			
+ 		###
+ 
+ 	end
+ 
+ 	def Notifications_show
+ 
+ 		@oldNotifications = Notification.where(:user_id => current_user.id ,:seen => true)
+ 		@oldNotifications = @oldNotifications.reverse
+ 		@Ownnotifications = Notification.where(:user_id => current_user.id ,:seen => false)
+ 		@notificationsNotSeen =  @Ownnotifications.reverse;
+ 		@Ownnotifications.each do |noti|
+        		 noti.update_attribute(:seen , true)
+     	end
+ 
+	end
 
-	def create
-		### create new notification
-			@user = User.find(@post.user_id)
+	def checkForupdates
+ 
+		newNoti = current_user.notifications.where( :popped => false )
+		if newNoti.length > 0
 			
-		###
-
-	end
-
-	def Notifications_show
-
-		@oldNotifications = Notification.where(:user_id => current_user.id ,:seen => true)
-		@oldNotifications = @oldNotifications.reverse
-		@Ownnotifications = Notification.where(:user_id => current_user.id ,:seen => false)
-		@notificationsNotSeen =  @Ownnotifications.reverse;
-		@Ownnotifications.each do |noti|
-       		 noti.update_attribute(:seen , true)
-    	end
-
-
-	end
-end
+			newNoti.each do |noti|
+				noti.update_attribute(:popped,true)
+			end
+			respond_to do |f|
+				f.js { render 'newNotifications'}
+			end
+		end
+ 	end
+ end

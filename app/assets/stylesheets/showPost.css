@@ -20,6 +20,7 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 20px;
     line-height: 1.4;
+    word-break: break-all;
 
 }
 
@@ -118,7 +119,10 @@
 .comment{
 
 	margin-top: 50px;
-	border-top: 1px solid #e2e2e2
+	border: 1px solid #e2e2e2;
+	padding-left: 20px;
+	padding-right: 20px;
+
 }
 
 .comment span{
@@ -126,7 +130,8 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 20px;
     line-height: 1.4;
-    padding-left: 20px;
+
+    word-break: break-all;
 }
 
 #Question_head{
@@ -161,6 +166,6 @@
 
 #destroy_comment{
 	position: relative;
-	left: 87%;
-	top: -138px;
+	bottom: -18px;
+	left: 455px;
 }
