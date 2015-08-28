@@ -55,13 +55,13 @@ ActiveRecord::Schema.define(version: 20150828134539) do
     t.string   "last_sign_in_ip"
     t.string   "name"
     t.string   "department"
+    t.boolean  "access",                 default: true
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.boolean  "access",                 default: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

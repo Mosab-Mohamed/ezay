@@ -49,9 +49,7 @@
   <% end %>
 
   <h3 style="color:blue">Deactivate your account</h3>
-  <form action="/users/sign_out">
-  <button onclick="<%= current_user.update_attribute(:access , false ) %>>">Deactivate now</button>
-  </form>
+  <button onclick="location.href='/user/deactivate'">Deactivate now</button>
   <br />
 
   <%= link_to "Back", :back %>

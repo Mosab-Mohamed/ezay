@@ -91,16 +91,4 @@ class PostsController < ApplicationController
       params.permit(:title, :body , :category , :kind)
     end
 
-    def search_results
-      @results = Array.new 
-      @posts = Post.all
-      @posts.each do |post|
-        if post.title.index(params[:q])
-          @results.push(post)
-        end
-      end
-      return @results
-    end
-
-
 end

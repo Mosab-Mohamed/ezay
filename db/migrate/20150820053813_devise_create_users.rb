@@ -21,6 +21,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string   :name
       t.string   :department
+      t.boolean  :access , default: true   
       t.timestamps null: false
     end
 

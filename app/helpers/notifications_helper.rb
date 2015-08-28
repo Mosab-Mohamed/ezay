@@ -9,7 +9,7 @@ module NotificationsHelper
 			@notifications.each do |noti|
 				noti.update_attribute(:popped,true)
 			end
-			"notifications.png"
+			"notifications.PNG"
 		else
 			"notifications2.png"
 		end
