@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
 
   def show
-    if(@post == nil)
+    if(@post == nil || !@post.user.access)
       redirect_to "/"
     else
       respond_to do |f|
@@ -16,7 +16,13 @@ class PostsController < ApplicationController
 
   def show_cat
 
-      @posts = Post.where(:category => params[:cat] ,:kind => params[:kind])
+      @Allposts = Post.where(:category => params[:cat] ,:kind => params[:kind])
+      @posts = Array.new
+      @Allposts.each do |p|
+        if (p.user.access)
+          @posts << p
+        end
+      end
       @cat = params[:cat]
       @user = false
       render 'index'
@@ -29,7 +35,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    if(@post==nil || @post.user_id != current_user.id)
+    if(!@post.user.access)
+        redirect_to "/"
+    elsif(@post==nil || @post.user_id != current_user.id)
         render 'show'
     else
       respond_to do |f|
@@ -75,7 +83,13 @@ class PostsController < ApplicationController
 
   #GET/posts/search
   def search
-      @posts = Post.where(["title LIKE ?","%#{params[:q]}%"]) 
+      @AllSearchposts = Post.where(["title LIKE ?","%#{params[:q]}%"]) 
+      @posts = Array.new
+      @AllSearchposts.each do |p|
+        if (p.user.access)
+          @posts << p
+        end
+      end
       @user = true 
       render 'index'
   end

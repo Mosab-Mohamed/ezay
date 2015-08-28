@@ -1,7 +1,5 @@
 <%= render 'posts/sides'  %>
 
-<% user = User.find(@post.user_id)%>
-<% if user.access %>
 	<div id="show_post" data-remote="true">
 		<div id="Question_head">
 			<div id="Question_cat">
@@ -67,9 +65,6 @@
 			<% end %>
 		<% end %>
 	</div>
-<%else%>
-	<h2>This post belongs to a deactivated account</h2>
-<%end%>
 
 <br />
 <hr />
