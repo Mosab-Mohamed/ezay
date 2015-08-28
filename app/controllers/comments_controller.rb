@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 			respond_to do |f|
 				f.js {render 'posts/removeComment'}
 			end 
-		end
+		end	
 
 	end
 end
