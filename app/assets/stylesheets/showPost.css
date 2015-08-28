@@ -169,3 +169,7 @@
 	bottom: -18px;
 	left: 455px;
 }
+
+textarea {
+    resize: none;
+}
