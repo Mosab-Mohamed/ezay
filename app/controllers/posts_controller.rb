@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     if(@post==nil || @post.user_id != current_user.id)
-        render "/"
+        render 'show'
     else
       respond_to do |f|
         f.js {render 'posts/editPost'}
