@@ -22,4 +22,12 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.for(:sign_in) << :attribute
   # end
+
+  after_filter :after_login, :only => :create
+
+  def after_login
+    current_user.update_attribute(:access , true)
+  end
+
+  
 end

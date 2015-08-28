@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   root 'user#home'
-  get 'posts/search' => 'posts#search'
+  get '/posts/search' => 'posts#search'
   get 'posts/show_cat/:cat' => 'posts#show_cat'
   get 'posts/write' => 'posts#write'
   post 'comments/create' => 'comments#create'

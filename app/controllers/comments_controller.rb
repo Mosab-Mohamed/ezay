@@ -23,17 +23,19 @@ class CommentsController < ApplicationController
 	end
 
 	def delete
-
 		@comment = current_user.comments.find_by_id(params[:comment_id])
-
+		@post = Post.find_by_id(params[:post_id])
+		if(current_user.id == @post.user_id)
+			@comment = @post.comments.find_by_id(params[:comment_id])
+		end
+			
 		if(@comment != nil)
 			@comment.destroy
-			
+
 			respond_to do |f|
 				f.js {render 'posts/removeComment'}
 			end 
-		end
-		
+		end	
 
 	end
 end

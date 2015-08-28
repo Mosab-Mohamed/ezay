@@ -1,0 +1,20 @@
+<div id="write" data-remote="true">
+  <h3>Editing a Post ...</h3>
+    <form method="POST" action="/posts/<%= @post.id %>?kind=<%= @post.kind%>" data-remote="true">
+      <span>Title : </span><input  id="post_title" type="text" name="title" value=<%= breaking_wrap_wrap(@post.title, col = 40) %> <br /><br />
+      <span>Category : </span><select name="category" >
+        <option value="a" <%= if @post.category == "a" then "selected" end%>>A</option>
+        <option value="b" <%= if @post.category == "b" then "selected" end%>>B</option>
+        <option value="c" <%= if @post.category == "c" then "selected" end%>>C</option>
+        <option value="d" <%= if @post.category == "d" then "selected" end%>>D</option>
+        <option value="e" <%= if @post.category == "e" then "selected" end%>>E</option>
+        <option value="f" <%= if @post.category == "f" then "selected" end%>>F</option>
+        <option value="g" <%= if @post.category == "g" then "selected" end%>>G</option>
+        <option value="h" <%= if @post.category == "h" then "selected" end%>>H</option>
+        <option value="i" <%= if @post.category == "i" then "selected" end%>>I</option>
+        <option value="j" <%= if @post.category == "j" then "selected" end%>>J</option> 
+      </select><br /><br />
+      <textarea  name="body" rows="30" cols="70" ><%= breaking_wrap_wrap(@post.body, col = 55) %></textarea><br /> 
+      <input id="ask" type="submit" value="POST">
+    </form>
+</div>

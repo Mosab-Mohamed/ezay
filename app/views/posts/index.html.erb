@@ -8,13 +8,15 @@
 <%end%>
 
 <% @posts.each do |post|%>
-	
-	<div class="post">	
-		<div id="Question_cat">	<a href="/posts/show_cat/<%= post.category%>?kind=question"><%= post.category %></a>	</div><br /><br />
+	<% user = User.find(post.user_id) %>
+	<% if user.access %>
+		<div class="post">	
+			<div id="Question_cat">	<a href="/posts/show_cat/<%= post.category%>?kind=question"><%= post.category %></a>	</div><br /><br />
 
-		<a  class="title" href='/posts/<%= post.id%>' > <%= breaking_wrap_wrap(post.title, col = 55) %> </a> <br />
-		<span> <%= post.created_at %><span><br />
-		<span id="p"><%= truncate(breaking_wrap_wrap(post.body, col = 55) , length: 140, omission: '...' ) %><span> 
-		<a class="more" href='/posts/<%= post.id%>'> (more) </a> <br />
-	</div>	
+			<a  class="title" href='/posts/<%= post.id%>' > <%= breaking_wrap_wrap(post.title, col = 55) %> </a> <br />
+			<span> <%= post.created_at %><span><br />
+			<span id="p"><%= truncate(breaking_wrap_wrap(post.body, col = 55) , length: 140, omission: '...' ) %><span> 
+			<a class="more" href='/posts/<%= post.id%>'> (more) </a> <br />
+		</div>
+	<%end%>	
 <% end %>

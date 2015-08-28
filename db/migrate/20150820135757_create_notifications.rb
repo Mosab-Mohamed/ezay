@@ -4,7 +4,6 @@ class CreateNotifications < ActiveRecord::Migration
       t.integer :user_id
       t.integer :comment_id
       t.boolean :seen , :default => false 
-      t.boolean :popped , :default => false 
       t.timestamps null: false
     end
   end
