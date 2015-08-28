@@ -1,7 +1,5 @@
 <%= render 'posts/sides'  %>
 
-<% user = User.find(@post.user_id)%>
-<% if user.access %>
 	<div id="show_post" data-remote="true">
 		<div id="Question_head">
 			<div id="Question_cat">
@@ -48,8 +46,7 @@
 	</div> <br /><br /><br />
 
 	<div class="allComments">
-		<% @post.comments.reverse.each do |comment| %>
-			<%if (User.find(comment.user_id).access)%>
+		<% @comments.each do |comment| %>
 				<div id="<%= comment.id%>">
 					<div class="comment" >
 						<div class="userInfo">
@@ -64,12 +61,7 @@
 						<% end %>
 					<br /></div><br/>
 				</div>
-			<% end %>
 		<% end %>
 	</div>
-<%else%>
-	<h2>This post belongs to a deactivated account</h2>
-<%end%>
-
 <br />
 <hr />
