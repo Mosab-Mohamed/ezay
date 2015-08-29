@@ -6,7 +6,11 @@
  <a href="/posts/show_cat/<%= @cat %>?kind=question">Questions</a> | <a href="/posts/show_cat/<%= @cat %>?kind=post">Posts</a>
 </div>
 <%end%>
-
+<% if @user && @posts.length==0 %>
+	<div id="emptyMessage">
+		<h2 > Your Posts and Questions will be listed here </h2>
+	</div>	
+<% end %>
 <% @posts.each do |post|%>
 		<div class="post">	
 			<div id="Question_cat">	<a href="/posts/show_cat/<%= post.category%>?kind=question"> <%= post.category %></a>	</div><br /><br />

@@ -1,3 +1,6 @@
+body{
+	min-width: 800px;
+}
 #header{
 
 	width: 100% ;
@@ -8,7 +11,8 @@
 	top: 0px;
 	left: 0px;
 	z-index: 1;
-	background-color: #FFFFFF
+	background-color: #FFFFFF;
+	min-width :1300px;
 }
 
 #logo{
@@ -164,7 +168,7 @@ button , #searchButton {
 	
 	position: absolute;
 	top: 110px;
-	left: 350px;
+	left: 400px;
 	width: 550px;
 	padding-left: 5px;
 }
@@ -191,7 +195,7 @@ button , #searchButton {
 #rightSide{
 
 	position: fixed;
-	right: 120px;
+	left: 1050px;
 	top: 110px;
 	font-family: font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	border: 1px dashed #ccc;
@@ -261,5 +265,18 @@ button , #searchButton {
 
 #popup a:hover {
 	background-color: transparent;
-	color: #000000
+	color: #000000;
+}
+
+#emptyMessage {
+	width: 550px;
+	height: 200px;
+}
+
+#emptyMessage h2{
+
+	position: relative;
+	top: 200px;
+	border: 1px solid #C8C8AC ;
+	padding: 20px;
 }
