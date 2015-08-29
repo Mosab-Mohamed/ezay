@@ -1,14 +1,5 @@
-console.log("<%= @post.id %>");
 $("#write").hide();
+document.getElementById("qTitle").innerHTML= '<%= j breaking_wrap_wrap(@post.title, col = 30) %>' ;
+document.getElementById("qBody").innerHTML= '<%= j breaking_wrap_wrap(@post.body, col = 55)  %>' ;
 $("#show_post").show();
-$("#show_post").empty();
-$('<span><%= j @post.body %></span>').prependTo($('#show_post'));
-$('<br />').prependTo($('#show_post'));
-$('<div  class="userInfo" id="info"></div>').prependTo($('#show_post'));
-$('<%= image_tag @post.user.photo.url(:small)%><h3> <%= @post.user.name %> </h3>').prependTo($('#info'));
-$('<h1><%= @post.title %></h1>').prependTo($('#show_post'));
-$('<div id="Question_head"></div>').prependTo($('#show_post'));
-$('<div id="Question_cat"></div>').prependTo($('#Question_head'));
-$('<a href="/posts/show_cat/<%= @post.category%>?kind=question" id="postCategory"><%= @post.category  %></a>').prependTo($('#Question_cat'));
-$('<div id="Question_time"><%= @post.created_at %></div>').prependTo($('#Question_head'));
 $("#update_post").show();

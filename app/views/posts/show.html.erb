@@ -9,13 +9,13 @@
 				<%= @post.created_at %>
 			</div>
 		</div>
-		<h1><%= breaking_wrap_wrap(@post.title, col = 40) %></h1>
+		<h1 id="qTitle"><%= breaking_wrap_wrap(@post.title, col = 30) %></h1>
 		<div  class="userInfo">
 			<%= image_tag @post.user.photo.url(:small)%>
 			<h3> <%= @post.user.name %> </h3>
 		</div>
 		<br />
-		<span ><%= @post.body %></span>
+		<span id="qBody"><%= @post.body %></span>
 	</div>
 	<div id="update_post">
 		<% if (current_user.id == @post.user_id)%>
