@@ -8,7 +8,7 @@ class NotificationsController < ApplicationController
 
 	end
 
-	def Notifications_show
+	def notifications_show
 
 		@oldNotifications = Notification.where(:user_id => current_user.id ,:seen => true)
 		@oldNotifications = @oldNotifications.reverse
@@ -30,6 +30,11 @@ class NotificationsController < ApplicationController
 			end
 			respond_to do |f|
 				f.js { render 'newNotifications'}
+			end
+
+		else
+			respond_to do |f|
+				f.js { render 'noNewNotifications'}
 			end
 		end
 	end
