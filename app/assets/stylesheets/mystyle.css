@@ -118,9 +118,9 @@ button , #searchButton {
 #sidebar{
 
 	position: fixed;
-	left: 130px;
+	left: 50px;
 	top: 110px;
-	width: 170px;
+	width: 200px;
 	 
 }
 
