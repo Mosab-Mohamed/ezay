@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
 	def home
-		@posts = current_user.posts
+		@posts = current_user.posts.order("created_at DESC")
 		@user = true 
 		render 'posts/index'
 	end

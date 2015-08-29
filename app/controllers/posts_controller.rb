@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
   def show_cat
 
-      @Allposts = Post.where(:category => params[:cat] ,:kind => params[:kind])
+      @Allposts = Post.where(:category => params[:cat] ,:kind => params[:kind]).order("created_at DESC")
       @posts = Array.new
       @Allposts.each do |p|
         if (p.user.access)
