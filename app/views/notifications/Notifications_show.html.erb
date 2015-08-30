@@ -5,7 +5,7 @@
 	<% @notificationsNotSeen.each do |n| %>
 		<div id="notification">
 			<% @post = n.comment.post %>
-			<%= image_tag "home.png"%>
+			<%= image_tag "Avatar.png"%>
 			 <span id="noti_time"> At <%= n.created_at %></span><br/>
 			 <span id="noti_body"><%= n.comment.user.name%> commented on Your <a  class="Notification_posts" href='/posts/<%=@post.id%>'>Post</a> </span>
 		</div>	
@@ -15,7 +15,7 @@
 	<% @oldNotifications.each do |n| %>
 		<div id="notification">
 			<% @post = n.comment.post %>
-			<%= image_tag "home.png"%>
+			<%= image_tag "Avatar.png"%>
 			 <span id="noti_time"> At <%= n.created_at %></span><br/>
 			 <span id="noti_body"><%= n.comment.user.name%> commented on Your <a  class="Notification_posts" href='/posts/<%=@post.id%>'>Post</a> </span>
 		</div>	
