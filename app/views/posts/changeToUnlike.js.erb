@@ -1,0 +1,3 @@
+document.getElementById("likesNum").innerHTML = "<%=  @post.likes %> people like this" ;
+$("#likeBut").prop('href',"/posts/<%=@post.id%>/unlike");
+document.getElementById("likeBut").innerHTML = "Unlike";

@@ -53,11 +53,34 @@
 
 }
 
+#edit{
+	position: relative;
+	left: 70px;
+}
 #destroy{
 
 	position: relative;
-	left: 70px;
+	left: 140px;
 	top: -32px;
+}
+#like{
+	position: relative;
+	top: -64px;
+}
+#likeNotWriter{
+	position: relative;
+	top: -30px;
+	left: 460px;
+	height: 20px;
+	padding-bottom: 3px;
+}
+#likesNum{
+	position: relative;
+	bottom: -27px;
+	left: 7px;
+	border-top: 1px solid #e2e2e2;
+	padding-top: 5px;
+
 }
 
 
