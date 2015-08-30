@@ -169,14 +169,13 @@ button , #searchButton {
 	position: absolute;
 	top: 110px;
 	left: 400px;
-	width: 550px;
+	width: 650px;
 	padding-left: 5px;
 }
 
 #form
 {
 	position: relative;
-	left :20%;
 	top: 50px;
 	padding: 15px;
 	border: 2px solid #93b874 ;
@@ -195,7 +194,7 @@ button , #searchButton {
 #rightSide{
 
 	position: fixed;
-	left: 1050px;
+	left: 1085px;
 	top: 110px;
 	font-family: font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	border: 1px dashed #ccc;
@@ -375,7 +374,7 @@ button , #searchButton {
 	padding-bottom: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
-
+	width: 507px;
 	border: 1px solid #e2e2e2;
 
 }
@@ -461,7 +460,7 @@ button , #searchButton {
 
 }
 #newComment{
-
+	width: 550px;
 	background-color: #f6f6f6;
 	border: 1px solid #e2e2e2;
 }
@@ -509,12 +508,18 @@ button , #searchButton {
 	font-size: 14px;
 	font-weight: bold;
 }
-.comment{
 
+.allComments{
+	position: relative;
+	left: -70px;
+}
+.comment{
+	width: 507px;
 	margin-top: 50px;
 	border: 1px solid #e2e2e2;
 	padding-left: 20px;
 	padding-right: 20px;
+	float: left
 
 }
 
@@ -525,6 +530,22 @@ button , #searchButton {
     line-height: 1.4;
    
     word-break: break-all;
+}
+
+#rating
+{
+	position: relative;
+	left: -10px;
+	top: 55px;
+	font-family: "Comic Sans MS", cursive, sans-serif ; 
+	width: 70px;
+	text-align: center;
+	font-size: 15px;
+	float: left
+}
+
+#rating a:hover{
+	background: transparent;
 }
 
 #Question_head{
@@ -572,7 +593,7 @@ textarea {
 	padding-left: 20px;
 	padding-right: 20px;
 	border: 1px solid #e2e2e2;
-
+	width: 507px;
 	font-size: 15px;
 }
 #write h3

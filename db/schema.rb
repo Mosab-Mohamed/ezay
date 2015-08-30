@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830151558) do
+ActiveRecord::Schema.define(version: 20150830192238) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -52,12 +52,21 @@ ActiveRecord::Schema.define(version: 20150830151558) do
     t.string   "writer_pic_path"
     t.integer  "post_id"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "rating",          default: 0
+  end
+
+  create_table "followeds", force: :cascade do |t|
+    t.string   "user_id"
+    t.string   "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "post_id"
+    t.integer  "rated_id"
+    t.string   "category"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

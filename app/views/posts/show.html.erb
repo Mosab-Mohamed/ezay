@@ -28,7 +28,7 @@
 			<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
 			</div>
 			<div class = "option" id="like" >
-				<% if !liked(@post.id) %>
+				<% if !liked(@post.id,"post") %>
 					<a  id="likeBut" href="/posts/<%=@post.id%>/like" data-remote="true">Like</a>
 				<% else %>
 					<a  id="likeBut" href="/posts/<%=@post.id%>/unlike" data-remote="true">Unlike</a>
@@ -36,7 +36,7 @@
 			</div>
 		<% else%>
 			<div class = "option" id="likeNotWriter" >
-				<% if !liked(@post.id) %>
+				<% if !liked(@post.id,"post") %>
 					<a  id="likeBut" href="/posts/<%=@post.id%>/like" data-remote="true">Like</a>
 				<% else %>
 					<a  id="likeBut" href="/posts/<%=@post.id%>/unlike" data-remote="true">Unlike</a>
@@ -64,20 +64,29 @@
 	<div class="allComments">
 		<% @comments.each do |comment| %>
 				<div id="<%= comment.id%>">
-					<div class="comment" >
-						<div class="userInfo">
-						  <%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
-						  <h3> <%= comment.user.name %></h3>
-						 </div> 
-					  <span><%=comment.body%></span>
-					   <% if current_user.id == comment.user.id or current_user.id == @post.user_id %>
-						  	<div class = "option" id="destroy_comment" data-remote="true">
-								<a data-remote = 'true' data-method='delete' href="/comments/delete/<%=comment.id%>?post_id=<%=@post.id%>" >Delete</a>
-							</div>
-						<% end %>
-					<br /></div><br/>
+					<div id="con" >
+						<div id="rating" data-remote="true" > 
+								<a data-remote ='true' href="/comments/<%=comment.id%>/like"><%= image_tag("up.png" , width: 50) %></a>
+								<h2 id="ra_<%=comment.id%>"><%= comment.rating%></h2>
+								<a data-remote = 'true' href="/comments/<%=comment.id%>/dislike"><%= image_tag("down.png" , width: 50) %></a>
+						</div>
+						<div class="comment">
+							<div class="userInfo">
+							  <%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
+							  <h3> <%= comment.user.name %></h3>
+							 </div> 
+						  <span><%=comment.body%></span>
+						   <% if current_user.id == comment.user.id or current_user.id == @post.user_id %>
+							  	<div class = "option" id="destroy_comment" data-remote="true">
+									<a data-remote = 'true' data-method='delete' href="/comments/delete/<%=comment.id%>?post_id=<%=@post.id%>" >Delete</a>
+								</div>
+							<%else%>
+								<br /><br />	
+							<% end %>
+							<br />
+						</div>
+					</div>
 				</div>
 		<% end %>
 	</div>
 <br />
-<hr />

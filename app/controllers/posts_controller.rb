@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     else
 
       @comments = Array.new
-      @post.comments.reverse.each do |comment|
+      @post.comments.order("rating DESC").each do |comment|
            if(User.find_by_id(comment.user_id).access)
               @comments << comment
            end 
@@ -102,9 +102,9 @@ class PostsController < ApplicationController
   end
 
   def like
-    if !liked(@post.id)
+    if !likedPost(@post.id)
       @post.update_attribute(:likes , (@post.likes+1))
-      current_user.likes.create(:post_id => @post.id)
+      current_user.likes.create(:rated_id => @post.id,:category => "post")
       if current_user.id != @post.user_id
         User.find_by_id(@post.user_id).notifications.create(:post_id => @post.id , :writer_id => current_user.id ,:action =>"liked")
       end
@@ -116,9 +116,9 @@ class PostsController < ApplicationController
   end
 
   def unlike
-    if liked(@post.id)
+    if likedPost(@post.id)
       @post.update_attribute(:likes , (@post.likes-1))
-      current_user.likes.where(:post_id => @post.id).first.destroy
+      current_user.likes.where(:rated_id => @post.id , :category => "post").first.destroy
       if current_user.id != @post.user_id
          User.find_by_id(@post.user_id).notifications.where(:action => "liked").first.destroy
       end   
@@ -140,9 +140,9 @@ class PostsController < ApplicationController
       params.permit(:title, :body , :category , :kind)
     end
 
-    def liked (postId)
+    def likedPost (postId)
 
-      if current_user.likes.where(:post_id => postId).length != 0 
+      if current_user.likes.where(:rated_id => postId , :category => "post").length != 0 
         true
       else
         false

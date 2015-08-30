@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'user/deactivate' => 'user#deactivate'
   get '/posts/:id/like' => 'posts#like'
   get '/posts/:id/unlike' => 'posts#unlike'
+  get '/comments/:id/like' => 'comments#like'
+  get '/comments/:id/dislike' => 'comments#dislike'
   resources :posts 
   devise_for :users, :controllers => { registrations: 'users/registrations' , sessions: 'users/sessions' }
 end

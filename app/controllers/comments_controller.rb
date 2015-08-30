@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
 	 skip_before_filter :verify_authenticity_token, :only => :create 
+	before_action  :get_comment, :rating ,:only => [:like , :dislike]	
+
 	def create
-
-
 		@id=params[:post_id]
 		@post = Post.find_by_id(@id)
 		if(@post!= nil)
@@ -38,4 +38,59 @@ class CommentsController < ApplicationController
 		end	
 
 	end
+
+	def like
+
+		if !@positiveRating || @negativeRating
+			@comment.update_attribute(:rating , @comment.rating+1)
+
+			if(@negativeRating)
+				current_user.likes.where(:rated_id => params[:id] , :category => "-comment").first.destroy	
+			else
+				current_user.likes.create(:rated_id => params[:id] , :category => "+comment")
+			end
+			respond_to do |f|
+        		f.js {render 'posts/updateCommentRating'}
+      		end
+		end	
+	end
+
+	def dislike
+
+		if @positiveRating || !@negativeRating
+			@comment.update_attribute(:rating , @comment.rating-1)
+
+			if(@positiveRating)
+				current_user.likes.where(:rated_id => params[:id] , :category => "+comment").first.destroy	
+			else
+				current_user.likes.create(:rated_id => params[:id] , :category => "-comment")
+			end
+
+			respond_to do |f|
+        		f.js {render 'posts/updateCommentRating'}
+      		end
+		end 
+
+	end
+
+	private 
+
+	def get_comment
+		@comment = Comment.find_by_id(params[:id])
+	end
+
+	def rating
+		@positiveRating = ratedComment(params[:id],"+comment")
+		@negativeRating = ratedComment(params[:id],"-comment") ; 
+	end
+	
+	def ratedComment (commentId,cat)
+
+      if current_user.likes.where(:rated_id => commentId , :category => cat).length != 0 
+        true
+      else
+        false
+      end
+
+  	end
 end
