@@ -1,4 +1,4 @@
-$('#content').append('<div id="popup"><a href="/posts/<%= current_user.notifications[-1].comment.post.id%>"><%=image_tag("Avatar.png") %><span id="notBody"> <span id="commenterName"> <%= current_user.notifications[-1].comment.user.name %></span> commented on your Post </span></a></div>');
+$('#content').append('<div id="popup"><a href="/posts/<%= current_user.notifications[-1].comment.post.id%>"><%=image_tag("pp.png") %><span id="notBody"> <span id="commenterName"> <%= current_user.notifications[-1].comment.user.name %></span> commented on your Post </span></a></div>');
 
 setTimeout(function(){
 	$('#popup').fadeOut(1000);

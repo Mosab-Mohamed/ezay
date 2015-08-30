@@ -11,7 +11,7 @@
 		</div>
 		<h1 id="qTitle"><%= breaking_wrap_wrap(@post.title, col = 30) %></h1>
 		<div  class="userInfo">
-			<%= image_tag "Avatar.PNG"%>
+			<%= image_tag "pp.png"%>
 			<h3> <%= @post.user.name %> </h3>
 		</div>
 		<br />
@@ -32,7 +32,7 @@
 
 	<div id="newComment">
 		<div class="userInfo">
-			<%= image_tag "Avatar.png"%>	
+			<%= image_tag "pp.png"%>	
 			<h3> <%= current_user.name %> </h3>
 		</div>
 		<form  method = "POST"  action="/comments/create?post_id=<%=@post.id %>" data-remote="true">
@@ -50,7 +50,7 @@
 				<div id="<%= comment.id%>">
 					<div class="comment" >
 						<div class="userInfo">
-						  <%= image_tag "Avatar.png" %>
+						  <%= image_tag "pp.png"%>
 						  <h3> <%= comment.user.name %></h3>
 						 </div> 
 					  <span><%=comment.body%></span>
