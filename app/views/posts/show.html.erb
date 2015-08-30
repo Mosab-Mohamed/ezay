@@ -16,18 +16,34 @@
 		</div>
 		<br />
 		<span id="qBody"><%= @post.body %></span>
+		<h4 id="likesNum"> <%= @post.likes%> people like this</h4> 
 	</div>
 	<div id="update_post">
 		<% if (current_user.id == @post.user_id)%>
 			<div class = "option" id="edit" >
-			<!-- <a  href=<%= edit_post_path(@post) %>>Edit</a> -->
 			<a  href="/posts/<%=@post.id%>/edit" data-remote="true">Edit</a>
 			</div>
 
 			<div class = "option" id="destroy">
 			<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
 			</div>
+			<div class = "option" id="like" >
+				<% if !liked(@post.id) %>
+					<a  id="likeBut" href="/posts/<%=@post.id%>/like" data-remote="true">Like</a>
+				<% else %>
+					<a  id="likeBut" href="/posts/<%=@post.id%>/unlike" data-remote="true">Unlike</a>
+				<% end %>
+			</div>
+		<% else%>
+			<div class = "option" id="likeNotWriter" >
+				<% if !liked(@post.id) %>
+					<a  id="likeBut" href="/posts/<%=@post.id%>/like" data-remote="true">Like</a>
+				<% else %>
+					<a  id="likeBut" href="/posts/<%=@post.id%>/unlike" data-remote="true">Unlike</a>
+				<% end %>
+			</div>
 		<% end %>
+
 	</div>
 
 	<div id="newComment">
@@ -43,7 +59,7 @@
 		    	<input type="submit" value="Add Comment"> 
 		    </div> 
 	 	</form>
-	</div> <br /><br /><br />
+	</div> <br />
 
 	<div class="allComments">
 		<% @comments.each do |comment| %>

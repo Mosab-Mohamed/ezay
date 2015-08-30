@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   delete 'comments/delete/:comment_id' => 'comments#delete'
   get '/notifications/check_updates' => 'notifications#checkForupdates'
   get 'user/deactivate' => 'user#deactivate'
+  get '/posts/:id/like' => 'posts#like'
+  get '/posts/:id/unlike' => 'posts#unlike'
   resources :posts 
   devise_for :users, :controllers => { registrations: 'users/registrations' , sessions: 'users/sessions' }
 end

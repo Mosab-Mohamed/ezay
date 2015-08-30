@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :likes , dependent: :destroy
   has_attached_file :photo , :styles => {:small => "55x55>"}
   validates :name , :department ,presence: true 
   validates_attachment_presence :photo

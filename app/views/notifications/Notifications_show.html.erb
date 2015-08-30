@@ -4,20 +4,24 @@
 <h1>Notifications</h1>	<br />
 	<% @notificationsNotSeen.each do |n| %>
 		<div id="notification">
-			<% @post = n.comment.post %>
+			<% @post = n.post 
+			   @writer = User.find(n.writer_id)	
+			%>
 			<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
 			 <span id="noti_time"> At <%= n.created_at %></span><br/>
-			 <span id="noti_body"><%= n.comment.user.name%> commented on Your <a  class="Notification_posts" href='/posts/<%=@post.id%>'>Post</a> </span>
+			 <span id="noti_body"><%= @writer.name+" "+n.action %> your  <a  class="Notification_posts" href='/posts/<%=@post.id%>'>Post</a> </span>
 		</div>	
 	<%end%>
 	<br /> <hr />
 	<h2> Old Notifications </h2>
 	<% @oldNotifications.each do |n| %>
 		<div id="notification">
-			<% @post = n.comment.post %>
+			<% @post = n.post
+			 @writer = User.find(n.writer_id)	
+			%>
 			<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
 			 <span id="noti_time"> At <%= n.created_at %></span><br/>
-			 <span id="noti_body"><%= n.comment.user.name%> commented on Your <a  class="Notification_posts" href='/posts/<%=@post.id%>'>Post</a> </span>
+			 <span id="noti_body"><%= @writer.name+" "+n.action %> your <a  class="Notification_posts" href='/posts/<%=@post.id%>'>Post</a> </span>
 		</div>	
 	<%end%>
 

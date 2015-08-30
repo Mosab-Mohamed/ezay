@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 				####Notifactions teller####
 					if (@post.user_id != @comment.user_id)
 						@user = User.find(@post.user_id)
-						@user.notifications.create(:comment_id => @comment.id )
+						@user.notifications.create(:post_id => @id ,:writer_id => current_user.id , :action => "commented on")
 					end
 				#########
 				respond_to do |f|

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy ,:like ,:unlike]
   skip_before_filter :verify_authenticity_token, :only =>[:create , :update]    
 
 
@@ -37,7 +37,6 @@ class PostsController < ApplicationController
   end
 
   def write
-
   end 
 
 
@@ -102,6 +101,34 @@ class PostsController < ApplicationController
       render 'index'
   end
 
+  def like
+    if !liked(@post.id)
+      @post.update_attribute(:likes , (@post.likes+1))
+      current_user.likes.create(:post_id => @post.id)
+      if current_user.id != @post.user_id
+        User.find_by_id(@post.user_id).notifications.create(:post_id => @post.id , :writer_id => current_user.id ,:action =>"liked")
+      end
+      respond_to do |f|
+        f.js {render 'posts/changeToUnlike'}
+      end
+    end
+
+  end
+
+  def unlike
+    if liked(@post.id)
+      @post.update_attribute(:likes , (@post.likes-1))
+      current_user.likes.where(:post_id => @post.id).first.destroy
+      if current_user.id != @post.user_id
+         User.find_by_id(@post.user_id).notifications.where(:action => "liked").first.destroy
+      end   
+      respond_to do |f|
+        f.js {render 'posts/changeToLike'}
+      end
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -112,5 +139,15 @@ class PostsController < ApplicationController
     def post_params
       params.permit(:title, :body , :category , :kind)
     end
+
+    def liked (postId)
+
+      if current_user.likes.where(:post_id => postId).length != 0 
+        true
+      else
+        false
+      end
+
+  end
 
 end
