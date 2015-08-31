@@ -5,11 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def recommended_posts
-	  $rec_posts = Post.where(:category => current_user.department).order("comments_length DESC");
-  end
-
-  def sort
-
+	  $rec_posts = Post.where(:category => current_user.department).order("comments_length+likes DESC");
   end
 
   helper_method :recommended_posts 
