@@ -11,7 +11,7 @@
 		</div>
 		<h1 id="qTitle"><%= breaking_wrap_wrap(@post.title, col = 30) %></h1>
 		<div  class="userInfo">
-			<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
+			<%= image_tag @post.user.photo.url(:small)%>
 			<h3> <a href="/user/<%=@post.user_id%>"><%= @post.user.name %> </a></h3>
 		</div>
 		<br />
@@ -48,7 +48,7 @@
 
 	<div id="newComment">
 		<div class="userInfo">
-			<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>	
+			<%= image_tag current_user.photo.url(:small)%>	
 			<h3> <%= current_user.name %> </h3>
 		</div>
 		<form  method = "POST"  action="/comments/create?post_id=<%=@post.id %>" data-remote="true">
@@ -72,7 +72,7 @@
 						</div>
 						<div class="comment">
 							<div class="userInfo">
-							  <%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
+							  <%= image_tag comment.user.photo.url(:small)%>
 							  <h3> <%= comment.user.name %></h3>
 							 </div> 
 						  <span><%=comment.body%></span>
