@@ -113,6 +113,17 @@
 	font-weight: 600;
 }
 
+.userInfo p { 
+	display: inline-block; 
+}
+
+.userInfo { 
+	height:100px; 
+}
+
+#follow_but {
+	height:80px; 
+}
 
 #text
 {

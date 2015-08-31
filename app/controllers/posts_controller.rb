@@ -33,7 +33,7 @@ class PostsController < ApplicationController
       end
       @cat = params[:cat]
       @user = false
-      render 'index'
+      render "index"
   end
 
   def write
@@ -98,7 +98,7 @@ class PostsController < ApplicationController
         end
       end
       @user = true 
-      render 'index'
+      render "index"
   end
 
   def like

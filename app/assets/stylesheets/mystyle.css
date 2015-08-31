@@ -202,6 +202,17 @@ button , #searchButton {
 
 }
 
+#recommended_posts {
+	position: fixed;
+	left: 1050px;
+	bottom: 20px;
+	font-family: font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	border: 1px dashed #ccc;
+	padding: 8px;
+	width: 265px;
+	height: 180px;
+}
+
 #rightSide select{
 
 	width: 158px;
@@ -279,3 +290,4 @@ button , #searchButton {
 	border: 1px solid #C8C8AC ;
 	padding: 20px;
 }
+
