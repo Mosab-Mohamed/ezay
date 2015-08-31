@@ -2,14 +2,9 @@
 
 		<h4>Categories</h4>
 		<ul>
-			<li> <a href="/posts/show_cat/ComputerAndSystemsEngineering?kind=question">Computer and Systems Engineering</a> </li>
-			<li> <a href="/posts/show_cat/ElectricalEngineering?kind=question">Electrical Engineering</a> </li>
-			<li> <a href="/posts/show_cat/ArchitecturalEngineering?kind=question">Architectural Engineering</a></li>
-			<li> <a href="/posts/show_cat/MechanicalEngineering?kind=question">Mechanical Engineering</a> </li>
-			<li> <a href="/posts/show_cat/ProductionEngineering?kind=question">Production Engineering</a> </li>
-			<li> <a href="/posts/show_cat/ChemicalEngineering?kind=question">Chemical Engineering</a> </li>
-			<li> <a href="/posts/show_cat/NuclearEngineering?kind=question">Nuclear Engineering</a> </li>
-			<li> <a href="/posts/show_cat/MarineEngineering?kind=question">Marine Engineering</a> </li>
+			<% @categories.each do |cat|%>
+				<li> <a href="/posts/show_cat/<%=cat.name%>?kind=question"><%=cat.title%></a> </li>
+			<%end%>
 		</ul>
 
 </div> <!-- end of sidebar div -->   
@@ -19,14 +14,9 @@
 		<form method="post" action="/posts?kind=question">
 			<span>Title : </span><input  id="qtitle" type="text" name="title"><br /><br />
 			<span>Category : </span><select name="category">
-				<option value="ComputerAndSystemsEngineering">Computer and Systems</option>
-				<option value="ElectricalEngineering">Electrical Engineering</option>
-				<option value="ArchitecturalEngineering">Architectural Engineering</option>
-				<option value="MechanicalEngineering">Mechanical Engineering</option>
-				<option value="ProductionEngineering">Production Engineering</option>
-				<option value="ChemicalEngineering">Chemical Engineering</option>
-				<option value="NuclearEngineering">Nuclear Engineering</option>
-				<option value="MarineEngineering">Marine Engineering</option>	
+				<% @categories.each do |cat|%>
+					<option value="<%= cat.name %>"><%= cat.title%></option>	
+				<% end %>
 			</select><br /><br />
 			<textarea  name="body" rows="5" cols="30" ></textarea><br /> 
 			<input id="ask" type="submit" value="Ask">

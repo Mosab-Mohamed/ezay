@@ -131,8 +131,17 @@
 	text-decoration: none;
 }
 
-#follow_but {
-	height:80px; 
+#follow_but { 
+	position: relative;
+	left: 582px;
+	top: -25px;
+	width: 200px;
+}
+
+#follow_but a{
+	text-decoration: none;
+	text-align: center;
+	padding: 5px;
 }
 
 #text

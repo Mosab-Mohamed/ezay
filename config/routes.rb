@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get '/comments/:id/like' => 'comments#like'
   get '/comments/:id/dislike' => 'comments#dislike'
   get 'user/:id' => 'user#show_profile'
-  get '/NewsFeed' => 'user#NewsFeed'
+  get 'user/:id/follow' => 'user#follow'
+  get 'user/:id/unfollow' => 'user#unfollow'
+  get '/newsFeed' => 'user#newsFeed'
   resources :posts 
   devise_for :users, :controllers => { registrations: 'users/registrations' , sessions: 'users/sessions' }
 end

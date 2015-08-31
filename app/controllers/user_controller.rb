@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+	before_action :following , :only => [:follow ,:unfollow , :show_profile ]
 
 	def home
 		@posts = current_user.posts.order("created_at DESC")
@@ -6,10 +7,13 @@ class UserController < ApplicationController
 		render 'posts/index'
 	end
 
-	def NewsFeed
-		## posts from department and following ########################################
-		@posts = Post.where(:category => current_user.department)
-		################################################
+	def newsFeed
+		
+		allPosts = Post.where(:category => current_user.department)
+		current_user.followeds.each do |followed|
+			allPosts.concat(User.find_by_id(followed.followed_id).posts)	 
+		end
+		@posts = allPosts.sort_by{|has| has[:created_at]}.uniq.reverse[0..20]
 		@user = true 
 		render 'posts/index'
 	end
@@ -20,7 +24,6 @@ class UserController < ApplicationController
 	end
 
 	def show_profile
-		@id = params[:id]
 		@user = User.find(@id)
 		if (!@user.access)
 			@bool = false
@@ -30,4 +33,38 @@ class UserController < ApplicationController
 		@posts = @user.posts.order("created_at DESC")
 		render "show_profile"
 	end
+
+	def follow
+		unless @following
+			current_user.followeds.create(:followed_id => @id);
+			respond_to do |f|
+				f.js { render 'user/changeToUnfollow'}
+			end
+
+		end
+	end
+
+	def unfollow
+		if @following
+			@followedUser.destroy
+			respond_to do |f|
+				f.js { render 'user/changeToFollow'}
+			end
+
+		end	
+	end
+
+	private
+
+	def following
+		@id = params[:id]
+		@followedUsers = current_user.followeds.where(:followed_id => @id) ;
+		if @followedUsers.length != 0 || current_user.id == @id
+			@following = true
+			@followedUser = @followedUsers.first 
+		else
+			@following = false
+		end
+	end
+
 end

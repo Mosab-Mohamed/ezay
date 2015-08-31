@@ -8,9 +8,9 @@
       <%= f.text_field :name %>
     </div>
 
-    <div class="field">
-      <%= f.label :department %><br />
-      <%= f.text_field :department %>
+     <div class="field">
+     <%= f.label :Department %><br />
+     <%= f.select(:department, Category.all.collect {|c| [ c.title, c.name ] }, {}, {}) %>
     </div>
     
     <div class="field">
