@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :category
       t.integer :user_id
       t.string :kind
-      t.integer :comments_length
+      t.integer :comments_length 
       t.timestamps null: false
     end
   end

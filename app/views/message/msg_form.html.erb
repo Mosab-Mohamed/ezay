@@ -1,0 +1,11 @@
+<%= render('posts/sides') %>
+
+<h2> Send message to <%= @user.name %><h2>
+
+<form action="/user/<%=@user.id%>/message_sent">
+
+	<textarea id="msg_body" name="body"></textarea><br /><br />
+
+	<input id="send_msg" type="submit" value="Send">
+
+</form>

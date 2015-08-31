@@ -119,11 +119,32 @@ button , #searchButton {
 	cursor: pointer;
 }
 
+#msgbar{
+	position: fixed;
+	left: 50px;
+	top: 135px;
+	width: 200px;
+	border-bottom: 1px solid #C8C8AC ;
+}
+#msgbar span{
+	position: relative;
+	top: -5px;
+	left: 5px;
+}
+
+#msgbar a {
+	text-decoration: none;
+}
+#msgbar a:hover{
+	background: transparent;
+	color: #000000;
+}
+
 #sidebar{
 
 	position: fixed;
 	left: 50px;
-	top: 110px;
+	top: 150px;
 	width: 200px;
 	 
 }
@@ -299,5 +320,38 @@ background: transparent;
 	left: 50px;
 	border: 1px solid #C8C8AC ;
 	padding: 20px;
+}
+
+#msg_body {
+
+	height: 160px;
+	width: 550px;
+}
+
+#userInfoMsg img{
+	border-radius: 50%;
+}
+
+#userInfoMsg a:hover{
+	background: transparent;
+	color: #000000;
+}
+#userInfoMsg a{
+	position: relative;
+	top: -20px;
+	text-decoration: none;
+	font-family: "Comic Sans MS", cursive, sans-serif ; 
+	font-size: 19px;
+}
+
+#ms_body{
+	font-family: "Comic Sans MS", cursive, sans-serif ; 
+	font-size: 19px;
+	margin: 5px;
+}
+#singleMsg{
+	border: 1px solid #C8C8AC ;
+	padding: 10px;
+	margin-top: 10px;
 }
 

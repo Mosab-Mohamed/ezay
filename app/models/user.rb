@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
   has_many :likes , dependent: :destroy
   has_many :followeds ,dependent: :destroy
+  has_many :messages ,dependent: :destroy
   has_attached_file :photo , :styles => {:small => "55x55>"}
   validates :name , :department ,presence: true 
   validates_attachment_presence :photo

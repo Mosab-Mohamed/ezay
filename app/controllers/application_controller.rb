@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
   before_action  :listCategories 
 
   def recommended_posts
-	  $rec_posts = Post.where(:category => current_user.department).where.not(:user_id => current_user.id).order("comments_length+likes DESC").limit(4);
+	  $rec_posts = Post.where(:category => current_user.department).where.not(:user_id => current_user.id)
+    current_user.followeds.each do |followed|
+      
+      $rec_posts.concat(User.find_by_id(followed.followed_id).posts.where.not(:category => current_user.department))   
+    end
+    $rec_posts=$rec_posts.sort_by{|has| has[:likes] }.uniq.reverse[0..2]
+   
   end
 
   def listCategories

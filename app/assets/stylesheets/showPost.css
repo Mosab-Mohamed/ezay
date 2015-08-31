@@ -131,10 +131,10 @@
 	text-decoration: none;
 }
 
-#follow_but { 
+#follow_but  { 
 	position: relative;
 	left: 582px;
-	top: -25px;
+	top: -26px;
 	width: 200px;
 }
 
@@ -143,6 +143,16 @@
 	text-align: center;
 	padding: 5px;
 }
+
+#send {
+	text-decoration: none;
+	text-align: center;
+	padding: 5px;
+	position: relative;
+	left: 470px;
+	top: -45px;	
+}
+
 
 #text
 {

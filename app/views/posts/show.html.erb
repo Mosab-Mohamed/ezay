@@ -73,7 +73,7 @@
 						<div class="comment">
 							<div class="userInfo">
 							  <%= image_tag comment.user.photo.url(:small)%>
-							  <h3> <%= comment.user.name %></h3>
+							  <h3> <a href="/user/<%=comment.user.id%>"><%= comment.user.name %> </a></h3>
 							 </div> 
 						  <span><%=comment.body%></span>
 						   <% if current_user.id == comment.user.id or current_user.id == @post.user_id %>

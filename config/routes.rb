@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   get 'user/:id/follow' => 'user#follow'
   get 'user/:id/unfollow' => 'user#unfollow'
   get '/newsFeed' => 'user#newsFeed'
+  get 'user/:id/message' => 'message#msg_form'
+  get '/MyMessages' => 'message#msg_show'
+  get '/user/:id/message_sent' => 'message#create'
+  
   resources :posts 
   devise_for :users, :controllers => { registrations: 'users/registrations' , sessions: 'users/sessions' }
 end
