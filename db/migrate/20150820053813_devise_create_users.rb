@@ -23,6 +23,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :department
       t.boolean  :access , default: true   
       t.timestamps null: false
+
     end
 
     add_index :users, :email,                unique: true

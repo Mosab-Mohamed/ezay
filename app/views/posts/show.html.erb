@@ -12,7 +12,7 @@
 		<h1 id="qTitle"><%= breaking_wrap_wrap(@post.title, col = 30) %></h1>
 		<div  class="userInfo">
 			<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
-			<h3> <%= @post.user.name %> </h3>
+			<h3> <a href="/user/<%=@post.user_id%>"><%= @post.user.name %> </a></h3>
 		</div>
 		<br />
 		<span id="qBody"><%= @post.body %></span>
@@ -53,7 +53,7 @@
 		</div>
 		<form  method = "POST"  action="/comments/create?post_id=<%=@post.id %>" data-remote="true">
 			<div id="text">
-		    	<textarea cols="70" , rows="10" name="body"></textarea>
+		    	<textarea cols="70" , rows="3" name="body"></textarea>
 		    </div>
 		    <div id="submit">
 		    	<input type="submit" value="Add Comment"> 

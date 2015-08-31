@@ -89,9 +89,10 @@ ActiveRecord::Schema.define(version: 20150830192238) do
     t.string   "category"
     t.integer  "user_id"
     t.string   "kind"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "likes",      default: 0
+    t.integer  "comments_length"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "likes",           default: 0
   end
 
   create_table "users", force: :cascade do |t|

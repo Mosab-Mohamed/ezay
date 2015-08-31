@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 			@comment=@post.comments.create(:body => params[:body] , :user_id => current_user.id)
 
 			if(@comment.save)
+					@post.update_attribute(:comments_length,@post.comments.length)
 				####Notifactions teller####
 					if (@post.user_id != @comment.user_id)
 						@user = User.find(@post.user_id)

@@ -3,8 +3,16 @@ source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
+
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :production do
+	gem 'pg'
+end
+
+group :development do
+	gem 'sqlite3'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'coffee-script-source', '1.8.0'
 gem 'devise'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-gem 'pg'
+#gem 'pg'
 gem 'heroku'
 gem 'rails_12factor', group: :production
 gem 'activeadmin', '~> 1.0.0.pre1'

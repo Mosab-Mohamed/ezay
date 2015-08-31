@@ -28,9 +28,21 @@
 				<option value="NuclearEngineering">Nuclear Engineering</option>
 				<option value="MarineEngineering">Marine Engineering</option>	
 			</select><br /><br />
-			<textarea  name="body" rows="10" cols="30" ></textarea><br /> 
+			<textarea  name="body" rows="5" cols="30" ></textarea><br /> 
 			<input id="ask" type="submit" value="Ask">
 
 		</form>
 
-	</div>
+</div>
+
+<div id="recommended_posts">
+
+	<p>Recommended posts</p><hr />
+	<ul>
+		<% recommended_posts %>
+		<%$rec_posts.each do |p|%>
+		<li><a href="/posts/<%=p.id%>"><%= p.title %></a></li>
+		<% end %>
+	</ul>
+
+</div>

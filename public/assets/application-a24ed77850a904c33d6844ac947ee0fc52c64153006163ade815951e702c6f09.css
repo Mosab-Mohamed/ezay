@@ -202,6 +202,25 @@ button , #searchButton {
 
 }
 
+#recommended_posts {
+	position: fixed;
+	left: 1085px;
+	bottom: 50px;
+	font-family: font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	border: 1px dashed #ccc;
+	padding: 8px;
+	width: 235px;
+	height: 180px;
+}
+
+#recommended_posts a:hover{
+background: transparent;
+	color: #000000;
+}
+#recommended_posts a{
+	text-decoration: none;
+}
+
 #rightSide select{
 
 	width: 158px;
@@ -268,17 +287,19 @@ button , #searchButton {
 }
 
 #emptyMessage {
-	width: 550px;
+	width: 480px;
 	height: 200px;
 }
 
 #emptyMessage h2{
 
 	position: relative;
-	top: 200px;
+	top: 50px;
+	left: 50px;
 	border: 1px solid #C8C8AC ;
 	padding: 20px;
 }
+
 
 #notification{
 	border: 1px solid #C8C8AC ;
@@ -482,6 +503,27 @@ button , #searchButton {
 	font-weight: 600;
 }
 
+.userInfo p { 
+	display: inline-block; 
+}
+
+.userInfo { 
+	height:100px; 
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.userInfo a:hover{
+	background: transparent;
+	color: #000000;
+}
+
+.userInfo  a{
+	text-decoration: none;
+}
+
+#follow_but {
+	height:80px; 
+}
 
 #text
 {
