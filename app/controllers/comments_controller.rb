@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 	 skip_before_filter :verify_authenticity_token, :only => :create 
-	before_action  :get_comment, :rating ,:only => [:like , :dislike]	
+	before_action  :get_comment, :rating ,:only => [:like , :dislike]
+	before_action :authenticate_user!	
 
 	def create
 		@id=params[:post_id]

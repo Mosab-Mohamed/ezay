@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 	before_action :following , :only => [:follow ,:unfollow , :show_profile ]
-
+	before_action :authenticate_user!
 	def home
 		@posts = current_user.posts.order("created_at DESC")
 		@user = true 

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy ,:like ,:unlike]
   skip_before_filter :verify_authenticity_token, :only =>[:create , :update]    
-
+before_action :authenticate_user!
 
   def show
     if(@post == nil || !@post.user.access)
