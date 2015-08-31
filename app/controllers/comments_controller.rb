@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 		@id=params[:post_id]
 		@post = Post.find_by_id(@id)
 		if(@post!= nil)
-			@comment=@post.comments.create(:body => params[:body] , :user_id => current_user.id)
+			@comment=@post.comments.create(:body => params[:body].tr("\n"," ").tr("\r"," ") , :user_id => current_user.id)
 
 			if(@comment.save)
 					@post.update_attribute(:comments_length,@post.comments.length)
