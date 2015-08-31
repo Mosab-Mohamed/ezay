@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user! , :listCategories
 
   def recommended_posts
-<<<<<<< HEAD
 	  $rec_posts = Post.where(:category => current_user.department).where.not(:user_id => current_user.id).order("comments_length+likes DESC");
   end
 
