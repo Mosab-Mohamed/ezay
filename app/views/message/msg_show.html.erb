@@ -1,0 +1,34 @@
+<%= render 'posts/sides'  %>
+
+
+<h1 style="color:blue;">Messages</h1><br />
+    <h2>New Messages</h2>	
+	<% @MessagesNotSeen.each do |n| %>
+	<div >
+		<div >
+		<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
+		<a href="/user/<%=n.sender_id%>"><%=User.find(n.sender_id).name%></a>
+		</div>
+		<br />
+		<div>
+		<%= n.body %>
+		</div>
+	</div>
+	<%end%>
+	<br /> <hr />
+	<h2> Old Messages </h2>
+	<% @oldMessages.each do |n| %>
+	<div >
+		<div >
+		<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
+		<a href="/user/<%=n.sender_id%>"><%=User.find(n.sender_id).name%></a>	
+		</div>
+		<br />
+		<div >
+		<%= n.body %>
+		</div>
+	</div>
+	<%end%>
+
+
+<br /> <hr />

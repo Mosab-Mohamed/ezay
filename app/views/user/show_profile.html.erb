@@ -15,6 +15,9 @@
 				<a  data-remote="true" id="following" class="option" href="/user/<%=@id%>/unfollow" >Unfollow</a>
 			<% end %>
 		</div>
+		<div align="right">
+			<a href="/user/<%=@user.id%>/message">Send message</a>
+		</div>
 	<%end%>	
 	<% @posts.each do |post|%>
 		<div class="post">	

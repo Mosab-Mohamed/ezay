@@ -119,11 +119,17 @@ button , #searchButton {
 	cursor: pointer;
 }
 
+#msgbar{
+	position: fixed;
+	left: 50px;
+	top: 110px;
+}
+
 #sidebar{
 
 	position: fixed;
 	left: 50px;
-	top: 110px;
+	top: 150px;
 	width: 200px;
 	 
 }
@@ -298,5 +304,11 @@ background: transparent;
 	left: 50px;
 	border: 1px solid #C8C8AC ;
 	padding: 20px;
+}
+
+#msg_body {
+
+	height: 160px;
+	width: 550px;
 }
 
