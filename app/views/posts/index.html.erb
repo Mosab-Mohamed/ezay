@@ -1,14 +1,17 @@
-
 <%= render('posts/sides') %>
 
 <%if !@user%>	
-<div id='filter'>	
- <a href="/posts/show_cat/<%= @cat %>?kind=question">Questions</a> | <a href="/posts/show_cat/<%= @cat %>?kind=post">Posts</a>
-</div>
+	<div id='filter'>	
+	 <a href="/posts/show_cat/<%= @cat %>?kind=question">Questions</a> | <a href="/posts/show_cat/<%= @cat %>?kind=post">Posts</a>
+	</div>
+<%else%>
+	<div id='filter'>	
+	 <a href="/">MyPosts</a> | <a href="/newsFeed">NewsFeed</a>
+	</div>
 <%end%>
 <% if @user && @posts.length==0 %>
 	<div id="emptyMessage">
-		<h2 > Your Posts and Questions will be listed here </h2>
+		<h2 >Posts and Questions will be listed here </h2>
 	</div>	
 <% end %>
 <% @posts.each do |post|%>

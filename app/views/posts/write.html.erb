@@ -5,14 +5,9 @@
 		<form method="post" action="/posts?kind=post">
 			<span>Title : </span><input  id="post_title" type="text" name="title"><br /><br />
 			<span>Category : </span><select name="category">
-				<option value="ComputerAndSystemsEngineering">Computer and Systems</option>
-				<option value="ElectricalEngineering">Electrical Engineering</option>
-				<option value="ArchitecturalEngineering">Architectural Engineering</option>
-				<option value="MechanicalEngineering">Mechanical Engineering</option>
-				<option value="ProductionEngineering">Production Engineering</option>
-				<option value="ChemicalEngineering">Chemical Engineering</option>
-				<option value="NuclearEngineering">Nuclear Engineering</option>
-				<option value="MarineEngineering">Marine Engineering</option>	
+				<% @categories.each do |cat|%>
+					<option value="<%= cat.name %>"><%= cat.title%></option>	
+				<% end %>
 			</select><br /><br />
 			<textarea  name="body" rows="30" cols="70" ></textarea><br /> 
 			<input id="ask" type="submit" value="POST">

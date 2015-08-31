@@ -3,9 +3,9 @@ module PostsHelper
   		txt.gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}})/,"\\1\\3\n") 
 	end
 
-	def liked (postId)
+	def liked (ratedID ,cat)
 
-		if current_user.likes.where(:post_id => postId).length != 0 
+		if current_user.likes.where(:rated_id => ratedID , :category => cat).length != 0 
 			true
 		else
 			false

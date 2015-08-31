@@ -24,11 +24,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean  :access , default: true   
       t.timestamps null: false
 
-      ## confirmable
-      # t.string :confirmation_token
-      # t.datetime :confirmed_at
-      # t.datetime :confirmation_sent_at
-      # t.string :unconfirmed_email
     end
 
     add_index :users, :email,                unique: true

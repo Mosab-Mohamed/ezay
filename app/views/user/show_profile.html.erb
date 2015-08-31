@@ -1,0 +1,31 @@
+<%= render('posts/sides') %>
+
+<% if @bool %>
+	<div  class="userInfo">
+		<!-- <%= image_tag @user.photo.url(:small)%> -->
+		<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
+		<h3> <%= @user.name %><br /><p style="font-weight:normal;">Department: <%= @user.department %></p></h3>
+	</div>
+
+	<% if current_user.id.to_s != @id %>	
+		<div  id="follow_but">
+			<% unless @following %>	
+				<a  data-remote="true" id="following" class="option" href="/user/<%=@id%>/follow" >Follow +</a>
+			<%else%>
+				<a  data-remote="true" id="following" class="option" href="/user/<%=@id%>/unfollow" >Unfollow</a>
+			<% end %>
+		</div>
+	<%end%>	
+	<% @posts.each do |post|%>
+		<div class="post">	
+			<div id="Question_cat">	<a href="/posts/show_cat/<%= post.category%>?kind=question"> <%= post.category %></a>	</div><br /><br />
+			<a  class="title" href='/posts/<%= post.id%>' > <%= breaking_wrap_wrap(post.title, col = 55) %> </a> <br />
+			<span> <%= post.created_at %><span><br />
+			<span id="p"><%= truncate(breaking_wrap_wrap(post.body, col = 55) , length: 140, omission: '...' ) %><span> 
+			<a class="more" href='/posts/<%= post.id%>'> (more) </a> <br />
+		</div>
+	<% end %>
+<%else%>
+	<h2>This user is no longer activated</h2>
+<%end%>
+

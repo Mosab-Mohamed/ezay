@@ -1,5 +1,5 @@
 class NotificationsController < ApplicationController
-
+	before_action :authenticate_user!
 	def Notifications_show
 
 		@oldNotifications = Notification.where(:user_id => current_user.id ,:seen => true)
