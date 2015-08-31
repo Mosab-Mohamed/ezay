@@ -101,10 +101,6 @@ ActiveRecord::Schema.define(version: 20150830143708) do
     t.boolean  "access",                 default: true
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
