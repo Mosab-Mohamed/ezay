@@ -1,0 +1,28 @@
+console.log("<%= @comment.id %>");
+$("#newComment").hide();
+$(".option").hide();
+$("#update_post").hide();
+$("#<%= @comment.id %> .comment").css('background-color',"#f1f1f1");
+$("#<%= @comment.id %> span").attr('contentEditable',true);
+$("#<%= @comment.id %> span").css( "display","block" ); 
+$("#<%= @comment.id %> span").css( "width", "500px" ); 
+$("#<%= @comment.id %> span").css( "border", "1px solid #AEB9AE");
+$("#<%= @comment.id %> span").css('background-color',"#fff");
+
+$("#<%= @comment.id %> .comment").keypress(function(){
+	if(event.which == 13){
+		$("#newComment").show();
+		$(".option").show();
+		$("#update_post").show();
+		$("#<%= @comment.id %> .comment").css('background-color',"transparent");
+		$("#<%= @comment.id %> span").attr('contentEditable',false);
+		$("#<%= @comment.id %> span").css( "display","inline" ); 
+		$("#<%= @comment.id %> span").css( "border", "0px");
+		$("#<%= @comment.id %> span").css('background-color',"transparent");
+		var content = $("#<%= @comment.id %> span").text();
+		$.get("/comments/updateBody/<%= @comment.id%>?comment_body="+content,function(data){
+     		$("#<%= @comment.id %> span").html(data.body);
+  		});
+		
+	}
+});

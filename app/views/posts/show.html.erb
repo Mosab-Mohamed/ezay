@@ -63,7 +63,7 @@
 
 	<div class="allComments">
 		<% @comments.each do |comment| %>
-				<div id="<%= comment.id%>">
+				<div id="<%= comment.id%>" data-remote="true">
 					<div id="con" >
 						<div id="rating" data-remote="true" > 
 								<a data-remote ='true' href="/comments/<%=comment.id%>/like"><%= image_tag("up.png" , width: 50) %></a>
@@ -76,7 +76,13 @@
 							  <h3> <%= comment.user.name %></h3>
 							 </div> 
 						  <span><%=comment.body%></span>
+						  <div id="comment_options">
 						   <% if current_user.id == comment.user.id or current_user.id == @post.user_id %>
+						   		<%if current_user.id == comment.user.id%>
+								  	<div class = "option" id="edit_comment" data-remote="true">
+										<a data-remote = "true" href="/comments/edit.js?comment_id=<%=comment.id%>" method="POST">Edit</a>
+									</div>	
+								<% end %>
 							  	<div class = "option" id="destroy_comment" data-remote="true">
 									<a data-remote = 'true' data-method='delete' href="/comments/delete/<%=comment.id%>?post_id=<%=@post.id%>" >Delete</a>
 								</div>
@@ -84,6 +90,7 @@
 								<br /><br />	
 							<% end %>
 							<br />
+							</div>
 						</div>
 					</div>
 				</div>

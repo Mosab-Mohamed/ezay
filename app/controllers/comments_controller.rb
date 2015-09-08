@@ -41,6 +41,31 @@ class CommentsController < ApplicationController
 
 	end
 
+	def edit
+		Rails.logger = Logger.new(STDOUT)
+		
+		@comment = current_user.comments.find_by_id(params[:comment_id])
+		
+		if(@comment==nil)
+    		redirect_to '/'
+  		else
+  			respond_to do |f|
+				f.js {render 'posts/editComment'}
+			end 
+		end
+	end
+
+	def updateBody
+		Rails.logger = Logger.new(STDOUT)
+		logger.debug params
+		@comment = Comment.find_by_id(params[:id])
+		if(@comment==nil)
+			logger.debug "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"
+		end
+		@comment.update_attribute(:body , params[:comment_body])
+  		render json: @comment
+	end
+
 	def like
 
 		if !@positiveRating || @negativeRating

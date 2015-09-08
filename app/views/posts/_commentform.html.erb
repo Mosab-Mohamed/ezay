@@ -1,0 +1,14 @@
+<div id="edit_comment_form" data-remote="true">
+	<div class="userInfo">
+		<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>	
+		<h3> <%= current_user.name %> </h3>
+	</div>
+	<form  method = "POST"  action="/posts/updateComment" data-remote="true">
+		<div id="text">
+	    	<textarea cols="70" , rows="3" name="body"></textarea>
+	    </div>
+	    <div id="submit">
+	    	<input type="submit" value="Add Comment"> 
+	    </div> 
+ 	</form>
+</div>

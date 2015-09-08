@@ -159,6 +159,7 @@
 #submit{
 	padding-bottom: 8px;
 }
+
 #submit input{
 
 	position: relative;
@@ -243,6 +244,20 @@
 	position: relative;
 	bottom: -18px;
 	left: 455px;
+}
+
+#edit_comment{
+	position: relative;
+	bottom: -50px;
+	left: 385px;
+}
+
+#edit_comment_form{
+	position: relative;
+	left: 70px;
+	width: 550px;
+	background-color: #B3CCA7;
+	border: 1px solid #e2e2e2;
 }
 
 textarea {
