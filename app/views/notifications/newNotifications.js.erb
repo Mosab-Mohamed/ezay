@@ -1,5 +1,5 @@
 <% writer = User.find(current_user.notifications[-1].writer_id)	%>
-$('#content').append('<div id="popup"><a href="/posts/<%= current_user.notifications[-1].post.id%>"><%=image_tag("http://s22.postimg.org/vs5m2by99/image.png") %><span id="notBody"> <span id="commenterName"> <%= writer.name %></span> <%= current_user.notifications[-1].action %> your Post </span></a></div>');
+$('#content').append('<div id="popup"><a href="/posts/<%= current_user.notifications[-1].post.id%>"><%=image_tag(writer.photo.url(:small)) %><span id="notBody"> <span id="commenterName"> <%= writer.name %></span> <%= current_user.notifications[-1].action %> your Post </span></a></div>');
 
 setTimeout(function(){
 	$('#popup').fadeOut(1000);

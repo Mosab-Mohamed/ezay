@@ -205,12 +205,13 @@ button , #searchButton {
 #recommended_posts {
 	position: fixed;
 	left: 1085px;
-	bottom: 50px;
+	top: 390px;
 	font-family: font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	border: 1px dashed #ccc;
 	padding: 8px;
 	width: 235px;
-	height: 180px;
+	height: 240px;
+	
 }
 
 #recommended_posts a:hover{

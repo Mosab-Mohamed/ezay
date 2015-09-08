@@ -1,3 +1,8 @@
+<div id="msgbar">
+	<a href="/MyMessages"><%= image_tag("msg.png",width: 20)%><span>Messages<%=if current_user.messages.where(:seen => false).length !=0 then  image_tag( "notifications.PNG", alt: "",width: 30) end%></span></a>
+	
+</div>
+
 <div id="sidebar">
 
 		<h4>Categories</h4>

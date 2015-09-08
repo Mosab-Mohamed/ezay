@@ -7,7 +7,7 @@
 			<% @post = n.post 
 			   @writer = User.find(n.writer_id)	
 			%>
-			<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
+			<%= image_tag @writer.photo.url(:small)%>
 			 <span id="noti_time"> At <%= n.created_at %></span><br/>
 			 <span id="noti_body"><%= @writer.name+" "+n.action %> your  <a  class="Notification_posts" href='/posts/<%=@post.id%>'>Post</a> </span>
 		</div>	
@@ -19,7 +19,7 @@
 			<% @post = n.post
 			 @writer = User.find(n.writer_id)	
 			%>
-			<%= image_tag "http://s22.postimg.org/vs5m2by99/image.png"%>
+			<%= image_tag @writer.photo.url(:small)%>
 			 <span id="noti_time"> At <%= n.created_at %></span><br/>
 			 <span id="noti_body"><%= @writer.name+" "+n.action %> your <a  class="Notification_posts" href='/posts/<%=@post.id%>'>Post</a> </span>
 		</div>	
